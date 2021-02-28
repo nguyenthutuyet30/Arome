@@ -1,0 +1,14 @@
+fields:
+    Title:
+        label: 'watchlearn.switchstatment::lang.switchstatment.title'
+        span: full
+        type: text
+    switch:
+        label: 'watchlearn.switchstatment::lang.switchstatment.switch'
+        span: full
+        type: switch
+    images:
+        label: 'watchlearn.switchstatment::lang.switchstatment.image'
+        span: full
+        mode: image
+        type: mediafinder

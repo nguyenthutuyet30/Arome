@@ -1,0 +1,20 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table watchlearn_brand_'
+    - builder_table_create_watchlearn_brand_.php
+1.0.3:
+    - 'Updated table watchlearn_brand_'
+    - builder_table_update_watchlearn_brand_.php
+1.0.4:
+    - 'Updated table watchlearn_brand_'
+    - builder_table_update_watchlearn_brand__2.php
+1.0.5:
+    - 'Updated table watchlearn_brand_'
+    - builder_table_update_watchlearn_brand__3.php
+1.0.6:
+    - 'Created table watchlearn_brand_partnerstatus'
+    - builder_table_create_watchlearn_brand_partnerstatus.php
+1.0.7:
+    - 'Updated table watchlearn_brand_'
+    - builder_table_update_watchlearn_brand__4.php

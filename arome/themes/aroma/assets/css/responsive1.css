@@ -1,0 +1,432 @@
+/* Small Mobile */
+@media (max-width: 768px){
+
+    
+
+    .closebtn{
+        animation: fade-zoom-out .3s forwards;
+    }
+    
+    p.search-description {
+        color: #000;
+    }
+
+    .search-product{
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        display: block;
+      }
+      
+      .search-product {
+        position: absolute;
+        bottom: 3px;
+        left: 46px;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        padding: 6px;
+        border-radius: 50%;
+        color: #006eab;
+        font-size: 13px;
+        cursor: pointer;
+      }
+      
+      .search-product:hover{
+        color: #fff;
+        background-color: #006eab;
+      }
+      
+      /* overlay button search */
+      .openBtn {
+        background: #f1f1f1;
+        border: none;
+        padding: 10px 15px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      
+      .openBtn:hover {
+        background: #bbb;
+      }
+      
+      .overlay {
+        height: 100%;
+        width: 100%;
+        display: none;
+        position: fixed;
+        z-index: 100000;
+        top: 0;
+        left: 0;
+        background-image: url('../img/others/banner/banner-intro21.jpg');
+        background-repeat: no-repeat;
+        /* background-color: rgba(0,0,0, 0.9); */
+        animation: fade-zoom-in .3s forwards;
+      }
+
+      .overlay::before{
+          content: "";
+          position: absolute;
+          background-color: rgba(0,0,0, 0.1);
+          width: 100%;
+          height: 100%;
+      }
+      
+      .overlay-content {
+        position: relative;
+        top: 40%;
+        width: 95%;
+        text-align: center;
+        margin-top: 30px;
+        margin: auto;
+      }
+      
+      .overlay .closebtn {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        font-size: 46px;
+        cursor: pointer;
+        color: #006eab;
+      }
+      
+      .overlay .closebtn:hover {
+        color: #ccc;
+      }
+      
+      .overlay input[type=text]::placeholder{
+        color: #006eab;
+      }
+      
+      .overlay input[type=text] {
+        padding: 15px 5px;
+        border: none;
+        float: left;
+        width: 100%;
+        background: white;
+        font-size: 16px;
+        text-align: center;
+      }
+      
+      .overlay input:focus{
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid #006eab;
+        background-color: transparent!important;
+        color: #000;
+      }
+
+      .overlay input::placeholder{
+          color: #006eab!important;
+      }
+      
+      .overlay input[type=text]:hover {
+        background: #f1f1f1;
+      }
+      
+      /* .overlay button {
+        background: #f1f1f1;
+        width: 18%;
+        padding: 15px;
+        font-size: 13px;
+        cursor: pointer;
+        border-radius: 30px;
+        color: #006eab;
+      }
+      
+      .overlay button:hover {
+        background: #bbb;
+      } */
+
+    .block-search .search-icon{
+        display: block;
+    }
+    
+    .blog-btn{
+        margin: 0;
+        display: inline-block
+    }
+
+
+    #layout-content .slider-area .slider-content.slider-content-2 .button-1 a{
+        display: block!important;
+        width: 115px;
+        margin: 8px 0;
+        text-align: center;
+    }
+
+    #layout-content .slider-area .slider-content.slider-content-1 .button-1 a{
+        display: block!important;
+        width: 115px;
+        margin: 8px 0;
+        text-align: center;
+    }
+
+    .slider-content .button-1 a{
+        font-size: 12px;
+    }
+
+    .herboil__custom-content-area{
+        margin-top: 0!important;
+        margin-bottom: 0;
+    }
+
+    .wrapper-introduct{
+        margin-top: 30px;
+    }
+
+    .billboard-holder .billboard-additional-section, .billboard-holder .billboard-main-section1{
+        width: 100%;
+    }
+
+    .boxed-btn{
+        display: block;
+        margin-top: 20px;
+    }
+
+    .slider-content.slider-content-1 h2,
+    .slider-content.slider-content-2 {
+        font-size: 13px!important;
+    }
+
+    .slider-content.slider-content-1 h1,
+    .slider-content.slider-content-2 {
+        font-size: 18px!important;
+    }
+
+    .slider-content.slider-content-1 p,
+    .slider-content.slider-content-2 p {
+        font-size: 11px!important;
+    }
+    .product-title, .shop-list-view-tab-content-inner .herboil__product-item .product-info .product-title{
+        font-size: 18px;
+    }
+    
+    .heading-title h2:before{
+        left: 39%;
+    }
+
+    .form-footer form{
+        display: initial;
+    }
+    
+    .herboil__product-item {
+        height: 285px;
+    }
+
+    .cab-about-timeline-box:nth-child(even) .timeline-description{
+        padding: 20px 0;
+    }
+
+    .cricle-rotate{
+        float: none;
+        margin: 20px auto;
+    }
+
+    .cab-about-timeline-box:nth-child(even) .timeline-description .inner-des{
+        float: none;
+    }
+
+    .cab-about-timeline-box:nth-child(even) .timeline-title .cricle-rotate{
+        float: none;
+    }
+
+    .cab-about-history-timeline .cab-about-timeline-box{
+        display: initial;
+    }
+
+    .billboard-additional-section .billboard-image img{
+        display: none;
+    }
+
+    .billboard-holder .billboard-text-holder .billboard-text-inner{
+        border: none;
+    }
+
+    .billboard-holder .billboard-text-holder .billboard-text-inner{
+        padding: 20px 20px 20px;
+    }
+
+    .billboard-holder .billboard-text-holder{
+        padding:  20px 10px 20px;
+    }
+
+    .billboard-holder .billboard-additional-section, .billboard-holder .billboard-main-section{
+        width: 100%;
+    }
+
+    .billboard-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .billboard-holder{
+        display: initial;
+    }
+
+    .billboard-holder .billboard-additional-section .billboard-image, .billboard-holder .billboard-main-section .billboard-image{
+        display: block;
+        width: 100%;
+    }
+
+    p.des-about{
+        font-size: 13.5px;
+    }
+
+    h3.t-about{
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .banner-header{
+        height: 190px;
+        background-position: right;
+    }
+
+    .banner-header h1{
+        font-size: 26px;
+    }
+
+    .slick-arrow{
+        display: block;
+    }
+
+    p.section-subtitle{
+        margin-bottom: 30px;
+    }
+
+    .herboil__banner-area{
+        margin-top: 15px;
+        padding-top: 15px;
+    }
+
+    .item-count-label{
+        width: 124px;
+        height: 44px;
+        line-height: 44px;
+        font-size: 18px;
+        left: 8px;
+    }
+    
+    .item-image-des:before{
+        height: 200px;
+    }
+
+    .item-image-des{
+        width: 200px;
+        height: 200px;
+    }
+
+    h3.title-des {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .main_footer button#subscribe{
+        float: none;
+        display: block;
+        margin: 12px auto;
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+    }
+
+    .title-register h3{
+        font-size: 30px;
+        margin: 0 auto;
+    }
+
+    .section_newletter .main_footer input{
+        float: none;
+        clear: both;
+        /* width: 100%; */
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+    }
+    .wrap-register {
+        padding: 10px !important;
+    }
+}
+
+/* Large Desktop: 1024 px  */
+@media (min-width: 992px) and (max-width: 1200px) {
+
+   
+    .billboard-holder .billboard-text-holder{
+        padding: 20px;
+    }
+
+    .banner-header h1{
+        font-size: 64px;
+    }
+
+    .item-count-label{
+        width: 140px;
+        height: 44px;
+        line-height: 44px;
+        font-size: 18px;
+        left: -25px;
+    }
+    
+}
+
+/* Tablet: 767px */
+@media (min-width: 767px) and (max-width: 991px){
+
+    .search-product {
+        bottom: 35px;
+        left: 60%;
+        padding: 6px 12px;
+    }
+
+    .heading-title h2:before {
+        left: 40%;
+    }
+    
+    .billboard-holder .billboard-text-holder{
+        padding: 43px 52px 55px;
+    }
+
+    .billboard-holder .billboard-text-holder .billboard-text-inner{
+        border: 5px solid #fff;
+    }
+
+    .banner-header h1{
+        font-size: 40px;
+    }
+
+    .banner-header{
+        height: 400px;
+        background-position: top left;
+    }
+
+    .footer-top{
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .herboil__product-item {
+        height: 388px;
+    }
+
+    .timeline-description .inner-des{
+        margin: 0 auto;
+    }
+
+    .slider-content.slider-content-1 h2, .slider-content.slider-content-2 h2{
+        font-size: 50px;
+    }
+
+    .slider-content.slider-content-1 h1, .slider-content.slider-content-2 h1{
+        font-size: 40px;
+    }
+
+    .sidebar {
+        width: 240px;
+    }
+}
+
+@media (min-width: 1200px){
+    span.item-excerpt {
+        padding: 0 10px 0 10px;
+    }
+}

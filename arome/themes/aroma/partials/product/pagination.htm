@@ -1,0 +1,24 @@
+[viewBag]
+==
+
+{% set arPaginationList = Pagination.get(iPage, iCount) %}
+
+{# Render pagination buttons #}
+{% if arPaginationList is not empty %}
+
+<div class="pagination-list">
+    <ul>
+        <li class="pagination-arrow"><a href="#"><i class="fa fa-angle-left"></i></a></li>
+        {% for arPagination in arPaginationList %}
+        <li>
+            <a href="{{ url_current() }}?page={{ arPagination.value }}" class="{{ arPagination.class }}"
+                data-code="{{ arPagination.code }}">
+                {{ arPagination.name }}
+            </a>
+        </li>
+
+        {% endfor %}
+        <li class="pagination-arrow"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+    </ul>
+</div>
+{% endif %}

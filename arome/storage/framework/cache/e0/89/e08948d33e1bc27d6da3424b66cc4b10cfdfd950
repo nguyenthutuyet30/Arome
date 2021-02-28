@@ -1,0 +1,124 @@
+1614309476a:1:{s:19:"product/catalog.htm";a:7:{s:8:"fileName";s:19:"product/catalog.htm";s:7:"content";s:2365:"[ProductList]
+sorting = "no"
+
+[viewBag]
+==
+{# Get product collection #}
+{% if obActiveCategory is not empty %}
+
+{% set obProductList = ProductList.make().sort(ProductList.getSorting()).active().category(obActiveCategory.id, true) %}
+{% else %}
+{% set obProductList = ProductList.make().sort(ProductList.getSorting()).active() %}
+{% endif %}
+{# Get array with pagination buttons #}
+{% set iPage = Pagination.getPageFromRequest() %}
+{% set iCount = obProductList.count() %}
+
+{# Apply pagination to product collection and get array with product items #}
+{% if search %}
+    {% set arProductList = ProductList.filterProductList(obProductList.page(iPage, Pagination.getCountPerPage()), search) %}
+    
+{% else %}
+    {% set arProductList = obProductList.page(iPage, Pagination.getCountPerPage()) %}
+{% endif %}
+
+{% if arProductList is not empty %}
+{# Render product list #}
+<div class="shop-grid-list-view-tab-content">
+    <div class="tab-content">
+        <!-- Shop Grid View -->
+        <div class="tab-pane fade active show" id="shop_grid_view">
+            <div class="shop-grid-view-tab-content-inner">
+                <div class="row">
+                    {% for obProduct in arProductList %}
+                    <div class="col-xl-3 col-lg-4 col-6">
+                        {% partial 'product/product-card' obProduct=obProduct %}
+                    </div>
+                    {% endfor %}
+                    <div class="col-lg-12">
+                        {% partial 'product/pagination' iCount=iCount iPage=iPage %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="tab-pane fade" id="shop_list_view">
+            <div class="shop-list-view-tab-content-inner">
+                <div class="row">
+                    {% for obProduct in arProductList %}
+                    <div class="col-12">
+                        {% partial 'product/product-card-lage' obProduct=obProduct %}
+                    </div>
+                    {% endfor %}
+                    <div class="col-lg-12">
+                        {% partial 'product/pagination' iCount=iCount iPage=iPage %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<div>
+    Không có sản phẩm nào.
+</div>
+{% endif %}";s:5:"mtime";i:1614243991;s:6:"markup";s:2317:"{# Get product collection #}
+{% if obActiveCategory is not empty %}
+
+{% set obProductList = ProductList.make().sort(ProductList.getSorting()).active().category(obActiveCategory.id, true) %}
+{% else %}
+{% set obProductList = ProductList.make().sort(ProductList.getSorting()).active() %}
+{% endif %}
+{# Get array with pagination buttons #}
+{% set iPage = Pagination.getPageFromRequest() %}
+{% set iCount = obProductList.count() %}
+
+{# Apply pagination to product collection and get array with product items #}
+{% if search %}
+    {% set arProductList = ProductList.filterProductList(obProductList.page(iPage, Pagination.getCountPerPage()), search) %}
+    
+{% else %}
+    {% set arProductList = obProductList.page(iPage, Pagination.getCountPerPage()) %}
+{% endif %}
+
+{% if arProductList is not empty %}
+{# Render product list #}
+<div class="shop-grid-list-view-tab-content">
+    <div class="tab-content">
+        <!-- Shop Grid View -->
+        <div class="tab-pane fade active show" id="shop_grid_view">
+            <div class="shop-grid-view-tab-content-inner">
+                <div class="row">
+                    {% for obProduct in arProductList %}
+                    <div class="col-xl-3 col-lg-4 col-6">
+                        {% partial 'product/product-card' obProduct=obProduct %}
+                    </div>
+                    {% endfor %}
+                    <div class="col-lg-12">
+                        {% partial 'product/pagination' iCount=iCount iPage=iPage %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="tab-pane fade" id="shop_list_view">
+            <div class="shop-list-view-tab-content-inner">
+                <div class="row">
+                    {% for obProduct in arProductList %}
+                    <div class="col-12">
+                        {% partial 'product/product-card-lage' obProduct=obProduct %}
+                    </div>
+                    {% endfor %}
+                    <div class="col-lg-12">
+                        {% partial 'product/pagination' iCount=iCount iPage=iPage %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<div>
+    Không có sản phẩm nào.
+</div>
+{% endif %}";s:4:"code";N;s:11:"ProductList";a:1:{s:7:"sorting";s:2:"no";}s:7:"viewBag";a:0:{}}}

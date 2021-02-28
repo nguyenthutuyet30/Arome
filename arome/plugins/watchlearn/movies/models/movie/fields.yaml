@@ -1,0 +1,112 @@
+fields:
+    status:
+        label: 'Trạng thái'
+        span: full
+        type: switch
+    image:
+        label: Hình
+        mode: image
+        span: left
+        type: mediafinder
+    product:
+        label: 'Sản phẩm'
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        type: relation
+    name:
+        label: 'Tên banner'
+        span: right
+        type: text
+    name_size:
+        label: 'Cỡ chữ'
+        span: right
+        type: text
+    name_color:
+        label: 'Màu tên banner'
+        span: right
+        type: colorpicker
+    sale:
+        label: 'Thông tin ưu đãi'
+        span: auto
+        type: text
+    sale_size:
+        label: 'Cỡ chữ'
+        span: auto
+        type: text
+    sale_color:
+        label: 'Màu chữ thông tin ưu đãi'
+        span: auto
+        type: colorpicker
+    description:
+        label: 'Mô tả'
+        size: ''
+        span: left
+        type: textarea
+    description_size:
+        label: 'Cỡ chữ'
+        span: auto
+        type: text
+    description_color:
+        label: 'Màu chữ mô tả'
+        span: auto
+        type: colorpicker
+tabs:
+    fields:
+        btn1_status:
+            label: 'Trạng thái'
+            span: full
+            type: switch
+            tab: 'Nút mua ngay'
+        btn1_name:
+            label: 'Tên nút'
+            span: left
+            hidden: 0
+            trigger:
+                action: show
+                field: btn1_status
+                condition: checked
+            type: text
+            tab: 'Nút mua ngay'
+        btn1_color:
+            label: 'Màu nút'
+            span: auto
+            trigger:
+                action: show
+                field: btn1_status
+                condition: checked
+            type: colorpicker
+            tab: 'Nút mua ngay'
+        btn2_status:
+            label: 'Trạng thái'
+            span: full
+            type: switch
+            tab: 'Nút 2'
+        btn2_name:
+            label: 'Tên nút'
+            span: auto
+            trigger:
+                action: show
+                field: btn2_status
+                condition: checked
+            type: text
+            tab: 'Nút 2'
+        btn2_link:
+            label: 'Liên kết đến trang / trang web'
+            span: auto
+            placeholder: 'Để trống sẽ tới link sản phẩm đã chọn'
+            trigger:
+                action: show
+                field: btn2_status
+                condition: checked
+            type: text
+            tab: 'Nút 2'
+        btn2_color:
+            label: 'Màu nút'
+            span: auto
+            trigger:
+                action: show
+                field: btn2_status
+                condition: checked
+            type: colorpicker
+            tab: 'Nút 2'

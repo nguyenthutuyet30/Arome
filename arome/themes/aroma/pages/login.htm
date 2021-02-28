@@ -1,0 +1,57 @@
+title = "Đăng nhập"
+url = "/login"
+layout = "default"
+is_hidden = 0
+==
+<!-- SHOPING CART AREA START -->
+{% if not user %}
+<div class="account-login-area mobile-mb-75">
+    <div class="banner-header banner-login">
+        <div class="container text-center">
+            <h1>Đăng nhập</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            {% flash %}
+            <div class="alert alert-{{ type == 'error' ? 'danger' : type }}">{{ message }}</div>
+            {% endflash %}
+        </div>
+        <div class="row">
+            <div class="col-lg-6 mt-5 mb-5">
+                <div class="account-login-inner">
+                    <form data-request="onSignin" data-request-redirect="./" class="form-account-login">
+                        <label class="enter-login">Email*</label>
+                        <input type="text" name="email" placeholder="Vui lòng nhập email...">
+                        <label class="enter-login">Mật khẩu*</label>
+                        <input type="password" name="password" placeholder="Vui lòng nhập mật khẩu...">
+                        <div class="go-to-btn text-right" style="margin: 0;">
+                            <a href="{{ 'my-acount' | page }}">Quên mật khẩu?</a>
+                        </div>
+                        <div class="btn-wrapper text-center">
+                            <button class="boxed-btn black-btn btn-login" type="submit">Đăng Nhập</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="account-create text-center padding-top-50">
+                    <h4>BẠN CHƯA CÓ TÀI KHOẢN ?</h4>
+                    <p class="short-login-des">Tạo tài khoản để nhận được nhiều ưu đãi chỉ dành riêng cho Thành viên, và
+                        theo dõi đơn hàng của bạn nhanh hơn.<br>
+                    </p>
+                    <div class="btn-wrapper">
+                        <a href="./dang-ky-thanh-vien" class="boxed-btn black-btn btn-register btn-res">Tạo Tài
+                            Khoản</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% else%}
+
+
+{% endif %}
+<!-- SHOPING CART AREA END -->

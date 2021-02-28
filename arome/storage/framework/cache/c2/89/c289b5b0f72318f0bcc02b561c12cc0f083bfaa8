@@ -1,0 +1,136 @@
+1614309463a:1:{s:11:"catalog.htm";a:12:{s:8:"fileName";s:11:"catalog.htm";s:7:"content";s:3349:"title = "Catalog"
+url = "/catalog/:slug"
+layout = "default"
+is_hidden = 0
+
+[CategoryPage]
+slug = "{{ :slug }}"
+slug_required = 1
+smart_url_check = 1
+has_wildcard = 0
+skip_error = 0
+
+[ProductList]
+sorting = "popularity|desc"
+
+[Pagination]
+count_per_page = 15
+pagination_limit = 2
+active_class = "_act"
+button_list = "first,first-more,main,last-more,last"
+first_button_name = "First"
+first_button_limit = 3
+first_button_number = 1
+first-more_button_name = "..."
+first-more_button_limit = 4
+prev_button_name = "Prev"
+prev_button_limit = 1
+prev-more_button_name = "..."
+prev-more_button_limit = 1
+next-more_button_name = "..."
+next-more_button_limit = 1
+next_button_name = "Next"
+next_button_limit = 1
+last-more_button_name = "..."
+last-more_button_limit = 4
+last_button_name = "Last"
+last_button_limit = 3
+last_button_number = 1
+==
+{% set obCategory = CategoryPage.get() %}
+
+<!-- BANNER HEADER -->
+<div class="banner-header banner-product-item" data-bg="{{ obCatagory.filename }}"
+    style="background-image: url('{{ obCategory.preview_image.path  }}');">
+    <div class="container text-center">
+        <h1>{{ obCategory.name }}</h1>
+    </div>
+</div>
+<div class="shop-area padding-top-120 padding-bottom-120  mobile-pt-70 mobile-pb-75 tab-pt-110">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="shop-inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- shop-options -->
+                            <div class="shop-options  clearfix">
+                                <div class="shop-grid-list-view-tab-menu">
+                                    <div class="nav">
+                                        <a class="active show" data-toggle="tab" href="#shop_grid_view"><i
+                                                class="fa fa-th"></i></a>
+                                        <a data-toggle="tab" href="#shop_list_view" class=""><i
+                                                class="fa fa-th-list"></i></a>
+                                    </div>
+                                </div>
+                                <div class="showing-product-number">
+                                    <span>Showing 9 of 20 results</span>
+                                </div>
+                                <div class="short-by">
+                                    <select class="nice-select">
+                                        <option>Default sorting</option>
+                                        <option>Sort by popularity</option>
+                                        <option>Sort by new arrivals</option>
+                                        <option>Sort by price: low to high</option>
+                                        <option>Sort by price: high to low</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            {% partial 'product/catalog' obActiveCategory=obCategory %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>";s:5:"mtime";i:1613727844;s:6:"markup";s:2481:"{% set obCategory = CategoryPage.get() %}
+
+<!-- BANNER HEADER -->
+<div class="banner-header banner-product-item" data-bg="{{ obCatagory.filename }}"
+    style="background-image: url('{{ obCategory.preview_image.path  }}');">
+    <div class="container text-center">
+        <h1>{{ obCategory.name }}</h1>
+    </div>
+</div>
+<div class="shop-area padding-top-120 padding-bottom-120  mobile-pt-70 mobile-pb-75 tab-pt-110">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="shop-inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- shop-options -->
+                            <div class="shop-options  clearfix">
+                                <div class="shop-grid-list-view-tab-menu">
+                                    <div class="nav">
+                                        <a class="active show" data-toggle="tab" href="#shop_grid_view"><i
+                                                class="fa fa-th"></i></a>
+                                        <a data-toggle="tab" href="#shop_list_view" class=""><i
+                                                class="fa fa-th-list"></i></a>
+                                    </div>
+                                </div>
+                                <div class="showing-product-number">
+                                    <span>Showing 9 of 20 results</span>
+                                </div>
+                                <div class="short-by">
+                                    <select class="nice-select">
+                                        <option>Default sorting</option>
+                                        <option>Sort by popularity</option>
+                                        <option>Sort by new arrivals</option>
+                                        <option>Sort by price: low to high</option>
+                                        <option>Sort by price: high to low</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            {% partial 'product/catalog' obActiveCategory=obCategory %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>";s:4:"code";N;s:5:"title";s:7:"Catalog";s:3:"url";s:14:"/catalog/:slug";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:12:"CategoryPage";a:5:{s:4:"slug";s:11:"{{ :slug }}";s:13:"slug_required";s:1:"1";s:15:"smart_url_check";s:1:"1";s:12:"has_wildcard";s:1:"0";s:10:"skip_error";s:1:"0";}s:11:"ProductList";a:1:{s:7:"sorting";s:15:"popularity|desc";}s:10:"Pagination";a:22:{s:14:"count_per_page";s:2:"15";s:16:"pagination_limit";s:1:"2";s:12:"active_class";s:4:"_act";s:11:"button_list";s:36:"first,first-more,main,last-more,last";s:17:"first_button_name";s:5:"First";s:18:"first_button_limit";s:1:"3";s:19:"first_button_number";s:1:"1";s:22:"first-more_button_name";s:3:"...";s:23:"first-more_button_limit";s:1:"4";s:16:"prev_button_name";s:4:"Prev";s:17:"prev_button_limit";s:1:"1";s:21:"prev-more_button_name";s:3:"...";s:22:"prev-more_button_limit";s:1:"1";s:21:"next-more_button_name";s:3:"...";s:22:"next-more_button_limit";s:1:"1";s:16:"next_button_name";s:4:"Next";s:17:"next_button_limit";s:1:"1";s:21:"last-more_button_name";s:3:"...";s:22:"last-more_button_limit";s:1:"4";s:16:"last_button_name";s:4:"Last";s:17:"last_button_limit";s:1:"3";s:18:"last_button_number";s:1:"1";}}}

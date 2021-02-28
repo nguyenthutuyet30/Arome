@@ -1,0 +1,11 @@
+plugin:
+    name: 'watchlearn.switchstatment::lang.plugin.name'
+    description: 'watchlearn.switchstatment::lang.plugin.description'
+    author: watchlearn
+    icon: oc-icon-adjust
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: themdoitac
+        url: /
+        icon: icon-adjust

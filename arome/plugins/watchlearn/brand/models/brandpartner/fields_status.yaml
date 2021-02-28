@@ -1,0 +1,5 @@
+fields:
+    status:
+        label: 'Bật/ Tắt'
+        span: full
+        type: switch

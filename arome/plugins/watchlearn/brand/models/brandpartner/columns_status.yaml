@@ -1,0 +1,4 @@
+columns:
+    status:
+        label: status
+        type: switch

@@ -1,0 +1,11 @@
+plugin:
+    name: slide
+    description: 'watchlearn.movies::lang.plugin.description'
+    author: watchlearn
+    icon: oc-icon-sliders
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Slide
+        url: watchlearn/movies/movies
+        icon: icon-sliders

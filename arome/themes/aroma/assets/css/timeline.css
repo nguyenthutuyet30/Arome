@@ -1,0 +1,138 @@
+.cab-about-history-timeline .cab-about-timeline-box {
+    display: flex;
+}
+
+.timeline-title {
+    font-size: 20px;
+    color: #233d62;
+    text-align: right;
+    flex: 1;
+    align-self: center;
+}
+
+.timeline-line {
+    min-width: 100px;
+    min-height: 100%;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.timeline-title span {
+    display: block;
+}
+
+.timeline-line:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: #d4d4d4;
+    transform: translateX(-50%);
+}
+
+.crircle-title {
+    width: 150px;
+    height: 150px;
+    background-color: #006eab;
+    border-radius: 50%;
+}
+
+.crircle-title .title-timeline {
+    text-align: center;
+    line-height: 150px;
+    color: #fff;
+}
+
+.timeline-line:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #f8f8f8;
+    border: 6px solid #8dc63f;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+}
+
+.timeline-description {
+    flex: 1;
+}
+
+.timeline-description .inner-des {
+    max-width: 550px;
+    border-radius: 0;
+    background-color: #f3f0f0;
+    padding: 20px;
+    font-size: 14px;
+    color: #687693;
+    text-align: justify;
+}
+
+.cab-about-timeline-box:nth-child(even) .timeline-title {
+    order: 3;
+    text-align: left;
+    flex: 1;
+}
+
+.cab-about-timeline-box:nth-child(even) .timeline-title .cricle-rotate {
+    float: left;
+}
+
+.cab-about-timeline-box:nth-child(even) .timeline-description {
+    order: 1;
+    padding: 60px 0;
+}
+
+.cab-about-timeline-box:nth-child(even) .timeline-description .inner-des {
+    float: right;
+}
+
+.cab-about-timeline-box:nth-child(even) .timeline-line {
+    order: 2;
+}
+
+.br-timeline{
+    margin-top: 30px;
+    margin-bottom: 70px;
+}
+
+.wrapper-introduct{
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 60px;
+}
+
+.main-menu ul li a:after{
+    content: '';
+    height: 1px;
+    position: relative;
+    top: -2px;
+    display: block;
+    width: 0;
+    background-color: transparent;
+    -webkit-transition: background-color .6s ease-in-out, width .25s ease-in-out;
+    -moz-transition: background-color .6s ease-in-out, width .25s ease-in-out;
+    transition: background-color .6s ease-in-out, width .25s ease-in-out;
+}
+
+.cricle-rotate{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border-top: 4px dotted #8DC63F;
+    border-right: 4px dotted #8DC63F;
+    border-left: 4px dotted #006EAB;
+    border-bottom: 4px dotted #006EAB;
+    padding: 12px;
+    animation: spin 30s infinite linear;
+    float: right;
+}
+
+.crircle-title{
+    animation: spin 30s infinite reverse linear;
+}

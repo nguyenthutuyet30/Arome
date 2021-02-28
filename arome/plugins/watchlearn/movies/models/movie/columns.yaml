@@ -1,0 +1,16 @@
+columns:
+    id:
+        label: id
+        type: number
+    name:
+        label: Banner
+        type: text
+    description:
+        label: 'Mô tả'
+        type: text
+    image:
+        label: 'Hình ảnh'
+        type: text
+    sale:
+        label: 'Ưu đãi'
+        type: text

@@ -1,0 +1,21 @@
+1614309476a:1:{s:25:"pagination/pagination.htm";a:5:{s:8:"fileName";s:25:"pagination/pagination.htm";s:7:"content";s:375:"{% set arPaginationList = Pagination.get(iPage, iCount) %}
+
+{# Render pagination buttons #}
+{% if arPaginationList is not empty %}
+{% for arPagination in arPaginationList %}
+<a href="{{ url_current() }}?page={{ arPagination.value }}" class="{{ arPagination.class }}"
+    data-code="{{ arPagination.code }}">
+    {{ arPagination.name }}
+</a>
+{% endfor %}
+{% endif %}";s:5:"mtime";i:1608948642;s:6:"markup";s:375:"{% set arPaginationList = Pagination.get(iPage, iCount) %}
+
+{# Render pagination buttons #}
+{% if arPaginationList is not empty %}
+{% for arPagination in arPaginationList %}
+<a href="{{ url_current() }}?page={{ arPagination.value }}" class="{{ arPagination.class }}"
+    data-code="{{ arPagination.code }}">
+    {{ arPagination.name }}
+</a>
+{% endfor %}
+{% endif %}";s:4:"code";N;}}

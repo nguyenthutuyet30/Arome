@@ -1,0 +1,16 @@
+fields:
+    status:
+        label: status
+        span: full
+        type: switch
+    brand_gallery:
+        label: 'image gallery'
+        mode: image
+        imageWidth: '128'
+        imageHeight: '91'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        type: fileupload

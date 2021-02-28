@@ -1,0 +1,76 @@
+<!-- Slider area -->
+<div class="slider-area home-three">
+    <!-- slider start -->
+    <div class="slider-inner">
+        <div id="mainSlider" class="nivoSlider nevo-slider">
+            {% for movie in Movie.getDataSlide %}
+            <img src="{{ movie.image | media }}" alt="main slider" title="#htmlcaption{{movie.id}}" />
+            {% endfor %}
+
+        </div>
+        {% for key, movie in Movie.getDataSlide %}
+        <div id="htmlcaption{{movie.id}}" class="nivo-html-caption slider-caption">
+            <div class="slider-progress"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-sm-12">
+                            <div class="slider-content pull-left 
+                            {% if key % 2 == 0 %}
+                                slider-content-1 slider-animated-1
+                            {% else %}
+                                slider-content-2 slider-animated-2
+                            {% endif %}
+                            ">
+                                <h2 class="htwo" style="font-size:{{movie.name_size}}px; color:{{movie.name_color}}">
+                                    {{movie.name}}</h2>
+                                <h1 class="hone" style="font-size:{{movie.sale_size}}px; color:{{movie.sale_color}}">
+                                    {{movie.sale}}</h1>
+                                <p class="hp1"
+                                    style="font-size:{{movie.description_size}}px; color:{{movie.description_color}}">
+                                    {{movie.description | raw}}</p>
+                                <div class="button-1 hover-btn-2">
+                                    {% if movie.btn1_status != 0 %}
+                                    <a class="pro boxed-btn" data-pro={{movie.product_id}} style="
+                                            color        :  {{movie.btn1_color}}; 
+                                            border-color :  {{movie.btn1_color}};"
+                                        data-toggle="modal{{movie.product_id}}" data-target="#modal{{movie.product_id}}"
+                                        onclick="buyNow('{{movie.product.offer[0].id}}', '{{amount}}')">{{movie.btn1_name}}</a>
+                                    {% endif %}
+                                    {% if movie.btn2_status != 0 %}
+                                    <a href="{% if movie.btn2_link %}./{{movie.btn2_link}}{% else %}./product/{{movie.product.slug}}{% endif %}"
+                                        class="see-more-ls boxed-btn" style=" color        :  {{movie.btn2_color}}; 
+                                            border-color :  {{movie.btn2_color}};">{{movie.btn2_name}}</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <!-- <div id="htmlcaption2" class="nivo-html-caption slider-caption">
+            <div class="slider-progress"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="slider-content slider-content-2 slider-animated-2 pull-left">
+                            <p class="hp1">Soothing Iritated Skin</p>
+                            <h1 class="hone">up to 20% off</h1>
+                            <h2 class="htwo">Lanbio Oil</h2>
+                            <div class="button-1 hover-btn-2">
+                                <a class="pro boxed-btn" data-pro={{movie.product_id}}
+                                    data-toggle="modal{{movie.product_id}}" data-target="#modal{{movie.product_id}}">Mua
+                                    ngay</a>
+                                <a data-pro={{movie.product_id}} class="see-more-ls boxed-btn">Tìm hiểu thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+        <!-- slider end -->
+    </div>
+    <!-- Slider area end -->

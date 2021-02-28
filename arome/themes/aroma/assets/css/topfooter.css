@@ -1,0 +1,115 @@
+.section_newletter .mail_footer {
+    width: 100%;
+    float: left;
+    margin-top: 30px;
+}
+
+.margin-bottom-0 {
+    margin-bottom: 0px !important;
+}
+
+.section_newletter .main_footer input {
+    width: 304px;
+    /* -webkit-width: calc(100% -210px);
+    -moz-width: calc(100% - 210px);
+    -o-width: calc(100% - 210px);
+    -os-width: calc(100% - 210px); */
+    border-radius: 0px;
+    margin-bottom: 0;
+    display: inline-block;
+    float: left;
+    background: #fff;
+    padding: 0 20px;
+    min-height: unset;
+    height: 50px;
+    line-height: 50px;
+    color: #292929;
+    font-family: "comfortaa";
+    font-size: 15px;
+    border: solid 2px #ebebeb;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    outline: none;
+    font-style: italic;
+}
+
+button#subscribe {
+    outline: none;
+    width: 120px;
+    margin-top: 0px;
+    height: 50px;
+    border-radius: 0px;
+    display: inline-block;
+    float: left;
+    margin: 0;
+    background: #8DC63F;
+    color: #fff;
+    font-family: "Noto Serif",serif;
+    font-size: 16px;
+    border: 1px solid #8DC63F;
+    border-left: 0;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    text-transform: uppercase;
+}
+
+button#subscribe:hover {
+    background: #006EAB;
+    color: #fff;
+    border-color: #006EAB;
+    transition: all 0.7s;
+}
+
+.section_newletter::before{
+    background-color: #000;
+    opacity: 0.4;
+    content: "";
+    width: 400px;
+    height: auto;
+}
+
+.section_newletter {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-position: 48% 50%;
+    background-attachment: fixed;
+    /* background-image: url('../img/others/banner/dangkinhantin.jpg'); */
+    background-color: #eef8f4;
+}
+.main_footer {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+}
+
+.wrap-register {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title-register h3 {
+    /* color: #fff; */
+    font-size: 34px;
+}
+
+.title-register h3:hover{
+    color: #006eab;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.title-register p{
+    /* color: #fff; */
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.form-footer form{
+    display: flex;
+  }
+

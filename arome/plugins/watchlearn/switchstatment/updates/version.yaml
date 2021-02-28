@@ -1,0 +1,14 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table watchlearn_switchstatment_'
+    - builder_table_create_watchlearn_switchstatment_.php
+1.0.3:
+    - 'Updated table watchlearn_switchstatment_'
+    - builder_table_update_watchlearn_switchstatment_.php
+1.0.4:
+    - 'Updated table watchlearn_switchstatment_'
+    - builder_table_update_watchlearn_switchstatment__2.php
+1.0.5:
+    - 'Updated table watchlearn_switchstatment_'
+    - builder_table_update_watchlearn_switchstatment__3.php

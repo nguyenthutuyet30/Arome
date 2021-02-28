@@ -1,0 +1,105 @@
+items:
+    -
+        title: 'Trang chủ'
+        nesting: null
+        type: cms-page
+        url: null
+        code: ''
+        reference: home
+        cmsPage: null
+        replace: null
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Giới thiệu'
+        nesting: null
+        type: cms-page
+        url: null
+        code: ''
+        reference: about
+        cmsPage: null
+        replace: null
+        viewBag:
+            locale:
+                vn:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Sản phẩm'
+        nesting: null
+        type: cms-page
+        url: null
+        code: ''
+        reference: all-product
+        cmsPage: null
+        replace: null
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 'Tinh dầu sả'
+                nesting: 0
+                type: shop-category
+                url: null
+                code: ''
+                reference: '1'
+                cmsPage: catalog
+                replace: 0
+                viewBag:
+                    locale:
+                        vn:
+                            title: ''
+                            url: ''
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Khuyến mại'
+                nesting: 0
+                type: shop-category
+                code: ''
+                reference: '3'
+                cmsPage: catalog
+                replace: 0
+                viewBag:
+                    locale:
+                        vn:
+                            title: ''
+                            url: ''
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: Blog
+        nesting: null
+        type: cms-page
+        url: null
+        code: ''
+        reference: blog
+        cmsPage: null
+        replace: null
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Liên hệ'
+        nesting: null
+        type: cms-page
+        url: null
+        code: ''
+        reference: contact
+        cmsPage: null
+        replace: null
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+name: mainMenu

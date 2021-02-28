@@ -1,0 +1,52 @@
+1614309463a:1:{s:17:"resetpassword.htm";a:9:{s:8:"fileName";s:17:"resetpassword.htm";s:7:"content";s:1122:"title = "resetpassword"
+url = "/resetpassword"
+layout = "default"
+is_hidden = 0
+==
+<div class="myacount">
+    <div class="banner-header banner-myacount">
+        <div class="container text-center">
+            <h1>Reset password</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="getpassword text-center">
+            <h2>Thiết lập lại mật khẩu</h2>
+            <form action="" class="password-nonce">
+                <div class="lost-pass-input">
+                    <h3>Tạo mật khẩu mới cho <strong>nthutuyet@gmail.com</strong></h3>
+                    <input type="password" name="password" id="password" placeholder="Vui lòng nhập mật khẩu mới...">
+                    <input type="password" name="password" id="password"
+                        placeholder="Vui lòng nhập lại mật khẩu mới...">
+                </div>
+                <p>
+                    <span>Quay lại <a href="{{ 'login' | page }}" class="backlogin">Đăng nhập</a> </span>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>";s:5:"mtime";i:1613621761;s:6:"markup";s:1034:"<div class="myacount">
+    <div class="banner-header banner-myacount">
+        <div class="container text-center">
+            <h1>Reset password</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="getpassword text-center">
+            <h2>Thiết lập lại mật khẩu</h2>
+            <form action="" class="password-nonce">
+                <div class="lost-pass-input">
+                    <h3>Tạo mật khẩu mới cho <strong>nthutuyet@gmail.com</strong></h3>
+                    <input type="password" name="password" id="password" placeholder="Vui lòng nhập mật khẩu mới...">
+                    <input type="password" name="password" id="password"
+                        placeholder="Vui lòng nhập lại mật khẩu mới...">
+                </div>
+                <p>
+                    <span>Quay lại <a href="{{ 'login' | page }}" class="backlogin">Đăng nhập</a> </span>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>";s:4:"code";N;s:5:"title";s:13:"resetpassword";s:3:"url";s:14:"/resetpassword";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";}}

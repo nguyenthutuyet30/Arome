@@ -1,0 +1,44 @@
+1614309476a:1:{s:22:"product/pagination.htm";a:6:{s:8:"fileName";s:22:"product/pagination.htm";s:7:"content";s:734:"[viewBag]
+==
+
+{% set arPaginationList = Pagination.get(iPage, iCount) %}
+
+{# Render pagination buttons #}
+{% if arPaginationList is not empty %}
+
+<div class="pagination-list">
+    <ul>
+        <li class="pagination-arrow"><a href="#"><i class="fa fa-angle-left"></i></a></li>
+        {% for arPagination in arPaginationList %}
+        <li>
+            <a href="{{ url_current() }}?page={{ arPagination.value }}" class="{{ arPagination.class }}"
+                data-code="{{ arPagination.code }}">
+                {{ arPagination.name }}
+            </a>
+        </li>
+
+        {% endfor %}
+        <li class="pagination-arrow"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+    </ul>
+</div>
+{% endif %}";s:5:"mtime";i:1610058652;s:6:"markup";s:717:"{% set arPaginationList = Pagination.get(iPage, iCount) %}
+
+{# Render pagination buttons #}
+{% if arPaginationList is not empty %}
+
+<div class="pagination-list">
+    <ul>
+        <li class="pagination-arrow"><a href="#"><i class="fa fa-angle-left"></i></a></li>
+        {% for arPagination in arPaginationList %}
+        <li>
+            <a href="{{ url_current() }}?page={{ arPagination.value }}" class="{{ arPagination.class }}"
+                data-code="{{ arPagination.code }}">
+                {{ arPagination.name }}
+            </a>
+        </li>
+
+        {% endfor %}
+        <li class="pagination-arrow"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+    </ul>
+</div>
+{% endif %}";s:4:"code";N;s:7:"viewBag";a:0:{}}}

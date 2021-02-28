@@ -1,0 +1,12 @@
+title: Brand
+modelClass: Watchlearn\Brand\Models\Brand
+list: $/watchlearn/brand/models/brand/columns.yaml
+recordUrl: 'watchlearn/brand/brand/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: 20
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

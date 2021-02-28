@@ -1,0 +1,128 @@
+/* .btn-primary {
+    margin: 50px;
+    } */
+.p-30{
+    padding: 30px;
+}
+    .input-number {
+        height: 40px!important;
+        width: 60px!important;
+        vertical-align: top;
+        text-align: center;
+        outline: none;
+        user-select: none;
+    }
+
+    .input-number-decrement,
+    .input-number-increment {
+        display: inline-block;
+        width: 30px;
+        text-align: center;
+        cursor: pointer;
+        background: #f1f1f1;
+        height: 40px;
+        user-select: none;
+        line-height: 38px;
+        border: 1px solid #b3afab;
+    }
+
+    .input-number-decrement {
+        border-right: none;
+        border-radius: 4px 0 0 4px;
+        margin-right: -5px;
+    }
+
+    .input-number-increment {
+        border-left: none;
+        border-radius: 0 4px 4px 0;
+        margin-left: -5px;
+    }
+
+    .tag {
+        padding: 10px 0;
+    }
+
+    .tag p {
+        border-bottom: 1px dotted grey;
+    }
+
+    .info-product {
+        margin: 10px 0;
+    }
+
+    .btn-cart {
+        /* margin: 10px 0; */
+        display: inline-block;
+        border: 1px solid #b3afab;
+        padding: 5px 15px;
+        font-weight: bold;
+        border-radius: 30px;
+    }
+
+    .btn-cart:hover {
+        background: #006EAB;
+        transition: all 0.4s;
+        cursor: pointer;
+        color: #fff;
+    }
+
+    .btn-primary:hover{
+        background-color: var(--main-color-one);
+        color: var(--white);
+    }
+    
+    .carousel-item img {
+        padding: 10px;
+    }
+
+/* .modal-dialog-centered{
+    float: right;
+} */
+
+/* Popup Wishlist */
+.pop-up {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .4);
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .3s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pop-up:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.pop-up__content {
+    height: 300px;
+    width: 75%;
+    background-color: #828489;
+    border-radius: 8px;
+
+    transform: scale(.5);
+    transition: all .5s;
+
+    position: relative;
+}
+
+.pop-up:target .pop-up__content {
+    transform: scale(1);
+}
+
+.pop-up__close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+
+    color: #D0EFB1;
+    font-size: 25px;
+    font-weight: 700;
+}

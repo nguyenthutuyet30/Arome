@@ -1,0 +1,10 @@
+name: BrandPartner
+modelClass: Watchlearn\Brand\Models\Brandpartner
+form: $/watchlearn/brand/models/brandpartner/fields_status.yaml
+defaultRedirect: watchlearn/brand/brandpartner
+create:
+    redirect: 'watchlearn/brand/brandpartner/update/:id'
+    redirectClose: watchlearn/brand/brandpartner
+update:
+    redirect: watchlearn/brand/brandpartner
+    redirectClose: watchlearn/brand/brandpartner

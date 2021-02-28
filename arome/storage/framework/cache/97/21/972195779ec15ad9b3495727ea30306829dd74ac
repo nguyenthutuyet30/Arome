@@ -1,0 +1,445 @@
+1614309463a:1:{s:8:"blog.htm";a:11:{s:8:"fileName";s:8:"blog.htm";s:7:"content";s:13544:"title = "blog"
+url = "/blog/:page?"
+layout = "default"
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 3
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/blogcategory"
+postPage = "blogpost"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blogcategory"
+==
+<!-- BANNER HEADER -->
+<div class="banner-header banner-blog-top">
+    <div class="container text-center">
+        <h1>Blog</h1>
+    </div>
+</div>
+<!-- END BANNER HEADER -->
+
+<!-- SHOP AREA START -->
+<div class="blog-area padding-top-70 padding-bottom-70 mobile-pt-75 mobile-pb-75">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="blog-inner">
+                    <div class="row">
+                        {% for post in posts%}
+                        <div class="col-lg-12">
+                            <div class="herboil__blog-item">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        {% if post.featured_images.count %}
+                                        <div class="blog-img">
+                                            {% for image in post.featured_images %}
+                                            <a href="{{ post.url }}"><img data-src="{{image.filename}}"
+                                                    src="{{image.path}}" alt="{{image.description}}"></a>
+                                            {% endfor %}
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="blog-content">
+                                            <div class="blog-meta">
+                                                <ul>
+                                                    <li>{{ post.published_at|date('d/m/Y') }} {% if
+                                                        post.categories.count %} {% endif %}</li>
+                                                    <li>Bởi: <a href="#"></a>Admin</li>
+                                                </ul>
+                                            </div>
+                                            <h3 class="blog-title"><a href="{{post.url}}">{{post.title}}</a></h3>
+                                            <p>
+                                                {{ post.summary }}
+                                            </p>
+                                            <div class="blog-btn">
+                                                <a href="{{post.url}}" class="boxed-btn">Xem Thêm <i
+                                                        class="fa fa-angle-double-righ"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <!-- <div class="col-lg-12">
+                            <div class="herboil__blog-item">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <div class="blog-img">
+                                            <a href="blog-details.html"><img src="{{'assets/img/blog/2.jpg'|theme}}"
+                                                    alt="#"></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="blog-content">
+                                            <div class="blog-meta">
+                                                <ul>
+                                                    <li>4 November 2019</li>
+                                                    <li>By: <a href="#">Admin</a></li>
+                                                </ul>
+                                            </div>
+                                            <h3 class="blog-title"><a href="blog-details.html">Neckbeards: Everything
+                                                    You Wanted</a></h3>
+                                            <p>Integer at faucibus urna. Nullam condimentum leo id elit sagittis auctor.
+                                                Curabitur elementum nunc a leo imperdiet, nec elementum diam elementum.
+                                            </p>
+                                            <div class="blog-btn">
+                                                <a href="blog-details.html" class="boxed-btn">Read More <i
+                                                        class="icon-Group-6823"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="herboil__blog-item">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <div class="blog-img">
+                                            <a href="blog-details.html"><img src="{{'assets/img/blog/3.jpg'|theme}}"
+                                                    alt="#"></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="blog-content">
+                                            <div class="blog-meta">
+                                                <ul>
+                                                    <li>4 November 2019</li>
+                                                    <li>By: <a href="#">Admin</a></li>
+                                                </ul>
+                                            </div>
+                                            <h3 class="blog-title"><a href="blog-details.html">How Long Does It Take To
+                                                    Grow A Beard?</a></h3>
+                                            <p>Integer at faucibus urna. Nullam condimentum leo id elit sagittis auctor.
+                                                Curabitur elementum nunc a leo imperdiet, nec elementum diam elementum.
+                                            </p>
+                                            <div class="blog-btn">
+                                                <a href="blog-details.html" class="boxed-btn">Read More <i
+                                                        class="icon-Group-6823"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="herboil__blog-item">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <div class="blog-img">
+                                            <a href="blog-details.html"><img src="{{'assets/img/blog/4.jpg'|theme}}"
+                                                    alt="#"></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="blog-content">
+                                            <div class="blog-meta">
+                                                <ul>
+                                                    <li>4 November 2019</li>
+                                                    <li>By: <a href="#">Admin</a></li>
+                                                </ul>
+                                            </div>
+                                            <h3 class="blog-title"><a href="blog-details.html">When You Grow, Others
+                                                    Will Follow</a></h3>
+                                            <p>Integer at faucibus urna. Nullam condimentum leo id elit sagittis auctor.
+                                                Curabitur elementum nunc a leo imperdiet, nec elementum diam elementum.
+                                            </p>
+                                            <div class="blog-btn">
+                                                <a href="blog-details.html" class="boxed-btn">Read More <i
+                                                        class="icon-Group-6823"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="herboil__blog-item">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <div class="blog-img">
+                                            <a href="blog-details.html"><img src="{{'assets/img/blog/5.jpg'|theme}}"
+                                                    alt="#"></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="blog-content">
+                                            <div class="blog-meta">
+                                                <ul>
+                                                    <li>4 November 2019</li>
+                                                    <li>By: <a href="#">Admin</a></li>
+                                                </ul>
+                                            </div>
+                                            <h3 class="blog-title"><a href="blog-details.html">How To Properly Shampoo &
+                                                    Condition...</a></h3>
+                                            <p>Integer at faucibus urna. Nullam condimentum leo id elit sagittis auctor.
+                                                Curabitur elementum nunc a leo imperdiet, nec elementum diam elementum.
+                                            </p>
+                                            <div class="blog-btn">
+                                                <a href="blog-details.html" class="boxed-btn">Read More <i
+                                                        class="icon-Group-6823"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <div class="pagination-list margin-top-30">
+                                {% if posts.lastPage > 1 %}
+                                <ul>
+                                    {% if posts.currentPage > 1 %}
+                                    <li class="pagination-prev" rel="prev">
+                                        <a href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage-1) }) }}"
+                                            class="pagination-prev" rel="prev">
+                                            « </a>
+                                    </li>
+                                    {% endif %}
+
+                                    {% for page in 1..posts.lastPage %}
+                                    <li class="">
+                                        <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}"
+                                            class="pagination-num">{{ page }}</a>
+                                    </li>
+                                    {% endfor %}
+
+                                    {% if posts.lastPage > posts.currentPage %}
+                                    <li class="pagination-arrow">
+                                        <a href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage+1) }) }}"
+                                            class="pagination-first" rel="next"> » </a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- SHOP AREA END -->";s:5:"mtime";i:1613967948;s:6:"markup";s:13188:"<!-- BANNER HEADER -->
+<div class="banner-header banner-blog-top">
+    <div class="container text-center">
+        <h1>Blog</h1>
+    </div>
+</div>
+<!-- END BANNER HEADER -->
+
+<!-- SHOP AREA START -->
+<div class="blog-area padding-top-70 padding-bottom-70 mobile-pt-75 mobile-pb-75">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="blog-inner">
+                    <div class="row">
+                        {% for post in posts%}
+                        <div class="col-lg-12">
+                            <div class="herboil__blog-item">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        {% if post.featured_images.count %}
+                                        <div class="blog-img">
+                                            {% for image in post.featured_images %}
+                                            <a href="{{ post.url }}"><img data-src="{{image.filename}}"
+                                                    src="{{image.path}}" alt="{{image.description}}"></a>
+                                            {% endfor %}
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="blog-content">
+                                            <div class="blog-meta">
+                                                <ul>
+                                                    <li>{{ post.published_at|date('d/m/Y') }} {% if
+                                                        post.categories.count %} {% endif %}</li>
+                                                    <li>Bởi: <a href="#"></a>Admin</li>
+                                                </ul>
+                                            </div>
+                                            <h3 class="blog-title"><a href="{{post.url}}">{{post.title}}</a></h3>
+                                            <p>
+                                                {{ post.summary }}
+                                            </p>
+                                            <div class="blog-btn">
+                                                <a href="{{post.url}}" class="boxed-btn">Xem Thêm <i
+                                                        class="fa fa-angle-double-righ"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <!-- <div class="col-lg-12">
+                            <div class="herboil__blog-item">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <div class="blog-img">
+                                            <a href="blog-details.html"><img src="{{'assets/img/blog/2.jpg'|theme}}"
+                                                    alt="#"></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="blog-content">
+                                            <div class="blog-meta">
+                                                <ul>
+                                                    <li>4 November 2019</li>
+                                                    <li>By: <a href="#">Admin</a></li>
+                                                </ul>
+                                            </div>
+                                            <h3 class="blog-title"><a href="blog-details.html">Neckbeards: Everything
+                                                    You Wanted</a></h3>
+                                            <p>Integer at faucibus urna. Nullam condimentum leo id elit sagittis auctor.
+                                                Curabitur elementum nunc a leo imperdiet, nec elementum diam elementum.
+                                            </p>
+                                            <div class="blog-btn">
+                                                <a href="blog-details.html" class="boxed-btn">Read More <i
+                                                        class="icon-Group-6823"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="herboil__blog-item">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <div class="blog-img">
+                                            <a href="blog-details.html"><img src="{{'assets/img/blog/3.jpg'|theme}}"
+                                                    alt="#"></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="blog-content">
+                                            <div class="blog-meta">
+                                                <ul>
+                                                    <li>4 November 2019</li>
+                                                    <li>By: <a href="#">Admin</a></li>
+                                                </ul>
+                                            </div>
+                                            <h3 class="blog-title"><a href="blog-details.html">How Long Does It Take To
+                                                    Grow A Beard?</a></h3>
+                                            <p>Integer at faucibus urna. Nullam condimentum leo id elit sagittis auctor.
+                                                Curabitur elementum nunc a leo imperdiet, nec elementum diam elementum.
+                                            </p>
+                                            <div class="blog-btn">
+                                                <a href="blog-details.html" class="boxed-btn">Read More <i
+                                                        class="icon-Group-6823"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="herboil__blog-item">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <div class="blog-img">
+                                            <a href="blog-details.html"><img src="{{'assets/img/blog/4.jpg'|theme}}"
+                                                    alt="#"></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="blog-content">
+                                            <div class="blog-meta">
+                                                <ul>
+                                                    <li>4 November 2019</li>
+                                                    <li>By: <a href="#">Admin</a></li>
+                                                </ul>
+                                            </div>
+                                            <h3 class="blog-title"><a href="blog-details.html">When You Grow, Others
+                                                    Will Follow</a></h3>
+                                            <p>Integer at faucibus urna. Nullam condimentum leo id elit sagittis auctor.
+                                                Curabitur elementum nunc a leo imperdiet, nec elementum diam elementum.
+                                            </p>
+                                            <div class="blog-btn">
+                                                <a href="blog-details.html" class="boxed-btn">Read More <i
+                                                        class="icon-Group-6823"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="herboil__blog-item">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <div class="blog-img">
+                                            <a href="blog-details.html"><img src="{{'assets/img/blog/5.jpg'|theme}}"
+                                                    alt="#"></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="blog-content">
+                                            <div class="blog-meta">
+                                                <ul>
+                                                    <li>4 November 2019</li>
+                                                    <li>By: <a href="#">Admin</a></li>
+                                                </ul>
+                                            </div>
+                                            <h3 class="blog-title"><a href="blog-details.html">How To Properly Shampoo &
+                                                    Condition...</a></h3>
+                                            <p>Integer at faucibus urna. Nullam condimentum leo id elit sagittis auctor.
+                                                Curabitur elementum nunc a leo imperdiet, nec elementum diam elementum.
+                                            </p>
+                                            <div class="blog-btn">
+                                                <a href="blog-details.html" class="boxed-btn">Read More <i
+                                                        class="icon-Group-6823"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <div class="pagination-list margin-top-30">
+                                {% if posts.lastPage > 1 %}
+                                <ul>
+                                    {% if posts.currentPage > 1 %}
+                                    <li class="pagination-prev" rel="prev">
+                                        <a href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage-1) }) }}"
+                                            class="pagination-prev" rel="prev">
+                                            « </a>
+                                    </li>
+                                    {% endif %}
+
+                                    {% for page in 1..posts.lastPage %}
+                                    <li class="">
+                                        <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}"
+                                            class="pagination-num">{{ page }}</a>
+                                    </li>
+                                    {% endfor %}
+
+                                    {% if posts.lastPage > posts.currentPage %}
+                                    <li class="pagination-arrow">
+                                        <a href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage+1) }) }}"
+                                            class="pagination-first" rel="next"> » </a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- SHOP AREA END -->";s:4:"code";N;s:5:"title";s:4:"blog";s:3:"url";s:12:"/blog/:page?";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:9:"blogPosts";a:6:{s:10:"pageNumber";s:11:"{{ :page }}";s:12:"postsPerPage";s:1:"3";s:14:"noPostsMessage";s:14:"No posts found";s:9:"sortOrder";s:17:"published_at desc";s:12:"categoryPage";s:17:"blog/blogcategory";s:8:"postPage";s:8:"blogpost";}s:14:"blogCategories";a:3:{s:4:"slug";s:11:"{{ :slug }}";s:12:"displayEmpty";s:1:"0";s:12:"categoryPage";s:12:"blogcategory";}}}

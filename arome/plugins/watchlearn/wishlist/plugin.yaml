@@ -1,0 +1,6 @@
+plugin:
+    name: 'watchlearn.wishlist::lang.plugin.name'
+    description: 'watchlearn.wishlist::lang.plugin.description'
+    author: watchlearn
+    icon: oc-icon-heart
+    homepage: ''

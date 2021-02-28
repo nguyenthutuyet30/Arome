@@ -1,0 +1,71 @@
+title = "Sản phẩm"
+url = "/all-product"
+layout = "default"
+is_hidden = 0
+
+[ProductList]
+sorting = "no"
+
+[Watchlearn\Wishlist\Components\Wishlist Wishlist]
+==
+{% set obProductList = ProductList.make().sort(ProductList.getSorting()).active() %}
+
+{% set iPage = Pagination.getPageFromRequest() %}
+{% set iCount = obProductList.count() %}
+
+{% set arProductList = obProductList.page(iPage, Pagination.getCountPerPage()) %}
+
+<!-- BANNER HEADER -->
+
+
+<div class="banner-header banner-product">
+    <div class="container text-center">
+        <h1>Sản phẩm</h1>
+    </div>
+</div>
+<!-- END BANNER HEADER -->
+<div class="shop-area padding-top-60 padding-bottom-60  mobile-pt-30 mobile-pb-75 tab-pt-110">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="shop-inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- shop-options -->
+                            <div class="shop-options  clearfix">
+                                <div class="shop-grid-list-view-tab-menu">
+                                    <div class="nav">
+                                        <a class="active show" data-toggle="tab" href="#shop_grid_view"><i
+                                                class="fa fa-th"></i></a>
+                                        <!-- <a data-toggle="tab" href="#shop_list_view" class=""><i
+                                                class="fa fa-th-list"></i></a> -->
+                                    </div>
+                                </div>
+                                <div class="showing-product-number">
+                                    <span>Showing 9 of 20 results</span>
+                                </div>
+                                <div class="short-by">
+                                    <select class="nice-select">
+                                        {% for obProduct in obProducts %}
+                                        <option>Default sorting</option>
+                                        <option>Sort by popularity</option>
+                                        <option>Sort by new arrivals</option>
+                                        <option>Sort by price: low to high</option>
+                                        <option>Sort by price: high to low</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            {% partial 'product/catalog' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                {% partial 'pagination/pagination' iPage= iPage iCount= iCount%}
+            </div>
+        </div>
+    </div>
+</div>

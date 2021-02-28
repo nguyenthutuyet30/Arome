@@ -1,0 +1,51 @@
+1614308655a:1:{s:22:"cart/cart-position.htm";a:5:{s:8:"fileName";s:22:"cart/cart-position.htm";s:7:"content";s:1285:"<ul>
+    {% for obCart in obCartPosition %}
+    {# Get offer and product objects #}
+    {% set obOffer = obCart.item %}
+    {% set obProduct = obOffer.product %}
+    <li id="offered_{{obOffer.id}}" data-qty='{{obCart.quantity}}'>
+        <div class="img_content">
+            {% if obProduct.preview_image is not empty %}
+            <img class="product-image-cart" src="{{ obProduct.preview_image.path }}" itemprop="image"
+                alt="{{ obProduct.preview_image.description }}" title="{{ obProduct.preview_image.title }}">
+            {% endif %}
+            <span class="product-quantity">{{ obCart.quantity }}x</span>
+        </div>
+        <div class="right_block">
+            <a href="{{ obProduct.getPageUrl('product-page') }}">
+                <span class="product-name">{{ obProduct.name }}</span>
+            </a>
+            <span class="product-price">{{ Cart.StringToInt(obCart.price) | number_format(0,"",".") }}</span>
+            <a href="#" class="remove-from-cart" onclick="removeItem({{obOffer.id}})" ><i class="fa fa-remove pull-xs-left"></i></a>
+            {#<div class="attributes_content">
+                <span><strong>Dimension</strong>: 40x60cm</span><br>
+            </div>#}
+        </div>
+    </li>
+    {% endfor %}
+</ul>";s:5:"mtime";i:1614069484;s:6:"markup";s:1285:"<ul>
+    {% for obCart in obCartPosition %}
+    {# Get offer and product objects #}
+    {% set obOffer = obCart.item %}
+    {% set obProduct = obOffer.product %}
+    <li id="offered_{{obOffer.id}}" data-qty='{{obCart.quantity}}'>
+        <div class="img_content">
+            {% if obProduct.preview_image is not empty %}
+            <img class="product-image-cart" src="{{ obProduct.preview_image.path }}" itemprop="image"
+                alt="{{ obProduct.preview_image.description }}" title="{{ obProduct.preview_image.title }}">
+            {% endif %}
+            <span class="product-quantity">{{ obCart.quantity }}x</span>
+        </div>
+        <div class="right_block">
+            <a href="{{ obProduct.getPageUrl('product-page') }}">
+                <span class="product-name">{{ obProduct.name }}</span>
+            </a>
+            <span class="product-price">{{ Cart.StringToInt(obCart.price) | number_format(0,"",".") }}</span>
+            <a href="#" class="remove-from-cart" onclick="removeItem({{obOffer.id}})" ><i class="fa fa-remove pull-xs-left"></i></a>
+            {#<div class="attributes_content">
+                <span><strong>Dimension</strong>: 40x60cm</span><br>
+            </div>#}
+        </div>
+    </li>
+    {% endfor %}
+</ul>";s:4:"code";N;}}

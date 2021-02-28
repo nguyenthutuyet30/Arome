@@ -1,0 +1,63 @@
+1614309463a:1:{s:18:"cart/mini-cart.htm";a:6:{s:8:"fileName";s:18:"cart/mini-cart.htm";s:7:"content";s:1475:"[Cart]
+==
+{# Get cart positions #}
+{% set obCartPositionList = Cart.get() %}
+{% if obCartPositionList.isNotEmpty() %}
+<div class="header">
+    <a href="/arome/cart">
+        <i class="fa fa-shopping-basket"></i>
+        <span class="item_txt"> Giỏ hàng <span class="item_count">{{obCartPositionList.count()}}</span></span> -
+        <span class="item_total">{{ Cart.StringToInt(obCartPositionList.getTotalPrice()) | number_format(0,"",".") }} {{ obCartPositionList.getCurrency() }}</span>
+    </a>
+    <div class="body">
+        <div class="price_content">
+            {% partial 'cart/cart-position' obCartPosition=obCartPositionList %}
+            <div class="cart-total price_inline">
+                <span class="label">Tổng</span>
+                <span class="value">{{ Cart.StringToInt(obCartPositionList.getTotalPrice()) | number_format(0,"",".") }} {{
+                    obCartPositionList.getCurrency() }}</span>
+            </div>
+        </div>
+        <div style="display: flex;">
+            <div class="checkout col-6" style="padding-right: 0;">
+                <a href="/arome/checkout">Thanh toán</a>
+            </div>
+            <div class="checkout col-6">
+                <a href="/arome/cart">Xem Giỏ hàng</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="header"> <i class="fa fa-shopping-basket"></i> <span class="item_txt"> Giỏ hàng <span class="item_count"></div>
+{% endif %}";s:5:"mtime";i:1614069314;s:6:"markup";s:1463:"{# Get cart positions #}
+{% set obCartPositionList = Cart.get() %}
+{% if obCartPositionList.isNotEmpty() %}
+<div class="header">
+    <a href="/arome/cart">
+        <i class="fa fa-shopping-basket"></i>
+        <span class="item_txt"> Giỏ hàng <span class="item_count">{{obCartPositionList.count()}}</span></span> -
+        <span class="item_total">{{ Cart.StringToInt(obCartPositionList.getTotalPrice()) | number_format(0,"",".") }} {{ obCartPositionList.getCurrency() }}</span>
+    </a>
+    <div class="body">
+        <div class="price_content">
+            {% partial 'cart/cart-position' obCartPosition=obCartPositionList %}
+            <div class="cart-total price_inline">
+                <span class="label">Tổng</span>
+                <span class="value">{{ Cart.StringToInt(obCartPositionList.getTotalPrice()) | number_format(0,"",".") }} {{
+                    obCartPositionList.getCurrency() }}</span>
+            </div>
+        </div>
+        <div style="display: flex;">
+            <div class="checkout col-6" style="padding-right: 0;">
+                <a href="/arome/checkout">Thanh toán</a>
+            </div>
+            <div class="checkout col-6">
+                <a href="/arome/cart">Xem Giỏ hàng</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="header"> <i class="fa fa-shopping-basket"></i> <span class="item_txt"> Giỏ hàng <span class="item_count"></div>
+{% endif %}";s:4:"code";N;s:4:"Cart";a:0:{}}}

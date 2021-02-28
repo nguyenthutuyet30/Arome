@@ -1,0 +1,55 @@
+{# Get offer and product objects #}
+{% set obOffer = obCartPosition.item %}
+{% set obProduct = obOffer.product %}
+
+
+
+<tr class="cart-inner-item-{{obOffer.id}}">
+    <td class="cart-product-thumbnail">
+        <a href="{{ obProduct.getPageUrl('product-page') }}">
+            {% if obProduct.preview_image is not empty %}
+            <img src="{{ obProduct.preview_image.path }}" itemprop="image"
+                alt="{{ obProduct.preview_image.description }}" title="{{ obProduct.preview_image.title }}">
+            {% endif %}</a>
+    </td>
+    <td class="cart-product-info" style="width: 100%;">
+        <div class="row">
+            <div class="col-8">
+                <h4 class="product-title"><a href="{{ obProduct.getPageUrl('product-page') }}">{{ obProduct.name }}</a>
+                </h4>
+            </div>
+            <div class="col-4">
+                <span class="cart-product-subtotal">{{Cart.StringToInt(obOffer.price) | number_format(0,"",".")}} {{obCartPosition.currency}}</span>
+                <span class="cart-product-remove" onclick="removeItem({{obOffer.id}})">
+                    <i class="fa fa-remove pull-xs-left"></i>
+                </span>
+            </div>
+        </div>
+        <p class="product-bmi">(50mg/ml)</p>
+        <p class="product-bmi">Kho: {{ obOffer.quantity }} sản phẩm</p>
+        <div class="cart-product-count-price">
+            <ul>
+                <li>
+                    <div class="cart-plus-minus">
+                        <div class="dec qtybutton dec-{{obCartPosition.id}}" data-offer="{{obOffer.id}}"
+                            data-cart="{{obCartPosition.id}}" data-qty="{{obCartPosition.quantity}}">-</div>
+                        <input type="number" class="cart-plus-minus-box input-qty-cart itemqty-{{obCartPosition.id}}" name="quantity"
+                            value="{{ obCartPosition.quantity }}" data-qty="{{ obCartPosition.quantity }}" max="{{ obOffer.quantity }}" min="1"data-max="{{ obOffer.quantity }}" data-offer="{{obOffer.id}}"  data-cart="{{obCartPosition.id}}">
+                        <div class="inc qtybutton inc-{{obCartPosition.id}}" data-offer="{{obOffer.id}}"
+                            data-cart="{{obCartPosition.id}}" data-max="{{ obOffer.quantity }}"
+                            data-qty="{{ obCartPosition.quantity}}">+</div>
+                    </div>
+                </li>
+                <li>
+                    <span
+                        class="cart-product-subtotal total-price-{{obCartPosition.id}}">{{Cart.StringToInt(obCartPosition.price) | number_format(0,"",".")}} {{obCartPosition.currency}}</span>
+                    {% if obCartPosition.discount_price_value > 0 %}
+                    <del class="old-price-{{obCartPosition.id}}">{{ Cart.StringToInt(obCartPosition.old_price) | number_format(0,"",".") }}</del>
+                    {% endif %}
+                </li>
+                <li>
+                </li>
+            </ul>
+        </div>
+    </td>
+</tr>

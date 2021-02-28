@@ -1,0 +1,750 @@
+1614309463a:1:{s:18:"quanlytaikhoan.htm";a:10:{s:8:"fileName";s:18:"quanlytaikhoan.htm";s:7:"content";s:17894:"title = "Thông tin thành viên"
+url = "/quan-ly-tai-khoan"
+layout = "default"
+is_hidden = 0
+
+[account]
+paramCode = "code"
+forceSecure = 0
+requirePassword = 0
+==
+
+{{ form_ajax('onUpdate') }}
+<div class="form-group">
+    <label for="accountPassword">New Password</label>
+    <input name="password" type="password" class="form-control" id="accountPassword">
+</div>
+
+<div class="form-group">
+    <label for="accountPasswordConfirm">Confirm New Password</label>
+    <input name="password_confirmation" type="password" class="form-control" id="accountPasswordConfirm">
+</div>
+
+{% if updateRequiresPassword %}
+<p>To change these details, please confirm your current password.</p>
+<div class="form-group">
+    <label for="accountPasswordCurrent">Current Password <small class="text-danger">* required</small></label>
+    <input name="password_current" type="password" class="form-control" id="accountPasswordCurrent">
+</div>
+{% endif %}
+
+<button type="submit" class="btn btn-default">Save</button>
+
+{{ form_close() }}
+
+<script>console.log( ({{ user|raw }}))</script>
+
+<div class="records-management">
+    <div class="banner-header banner-management">
+        <div class="container text-center">
+            <h1>Tài khoản</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="cover-account">
+            <div class="my-account-session">
+                <div class="my-account-title">
+                    Hồ Sơ Của Tôi
+                </div>
+                <div class="my-account-subtitle">
+                    Quản lý hồ sơ để bảo mật
+                </div>
+            </div>
+
+            <div class="my-account-profile">
+                <div class="my-account-profile__left">
+                    <div class="input-width-label">
+                        <div class="input-width-label_wrapper">
+                            <div class="input-with-label__label">
+                                <label for="">Tên đăng nhập</label>
+                            </div>
+
+                            <div class="input-with-label__content">
+                                <div class="my-account__inline-container">
+                                    <div class="my-account__input-text">
+                                        {{user.username}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-width-label">
+                        <div class="input-width-label_wrapper">
+                            <div class="input-with-label__label">
+                                <label for="">Tên</label>
+                            </div>
+
+                            <div class="input-with-label__content">
+                                <div class="my-account__inline-container">
+                                    <div class="input-with-validator">
+                                        <input type="text" maxlength="255" value="{{user.name}}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-width-label">
+                        <div class="input-width-label_wrapper">
+                            <div class="input-with-label__label">
+                                <label for="">Email</label>
+                            </div>
+
+                            <div class="input-with-label__content">
+                                <div class="my-account__inline-container">
+                                    <div class="my-account__input-text">
+                                        {{user.email}}
+                                    </div>
+                                    <div class="my-account-profile__change-button">
+
+                                        <a href="" data-toggle="modal" data-target="#modalchangeemail">Thay đổi</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-width-label">
+                        <div class="input-width-label_wrapper">
+                            <div class="input-with-label__label">
+                                <label for="">Số điện thoại</label>
+                            </div>
+
+                            <div class="input-with-label__content">
+                                <div class="my-account__inline-container">
+                                    <div class="my-account__input-text">
+                                        {{user.phone}}
+                                    </div>
+                                    <div class="my-account-profile__change-button">
+                                        <a href="" data-toggle="modal" data-target="#modalchangephone">Thay đổi</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-width-label">
+                        <div class="input-width-label_wrapper">
+                            <div class="input-with-label__label">
+                                <label for="">Giới tính</label>
+                            </div>
+
+                            <div class="input-with-label__content">
+                                <div class="my-account-profile__gender">
+                                    <div class="stardust-radio-group">
+                                        <div class="stardust-radio">
+                                            <div class="stardust-radio-button">
+                                                <div class="stardust-radio-button__outer-circle">
+                                                    <div class="stardust-radio-button__inner-circle">
+
+                                                    </div>
+                                                    <input {% if user.sex == 'male' %} checked {%endif%} type="radio" id="male" name="gender" value="male">
+                                                </div>
+                                            </div>
+
+                                            <div class="stardust-radio__content">
+                                                <div class="stardust-radio__label">
+                                                    Nam
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="stardust-radio">
+                                            <div class="stardust-radio-button">
+                                                <div class="stardust-radio-button__outer-circle">
+                                                    <div class="stardust-radio-button__inner-circle" onclick="">
+
+                                                    </div>
+                                                    <input {% if user.sex == 'female' %} checked {%endif%} type="radio" id="female" name="gender" value="female">
+                                                </div>
+                                            </div>
+
+                                            <div class="stardust-radio__content">
+                                                <div class="stardust-radio__label">
+                                                    Nữ
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="stardust-radio">
+                                            <div class="stardust-radio-button">
+                                                <div class="stardust-radio-button__outer-circle">
+                                                    <div class="stardust-radio-button__inner-circle">
+
+                                                    </div>
+                                                    <input {% if user.sex == 'other' %} checked {%endif%} type="radio" id="other" name="gender" value="other">
+                                                </div>
+                                            </div>
+
+                                            <div class="stardust-radio__content">
+                                                <div class="stardust-radio__label">
+                                                    Khác
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="input-width-label">
+                        <div class="input-width-label_wrapper">
+                            <div class="input-with-label__label">
+                                <label for="">Ngày sinh</label>
+                            </div>
+
+                            <div class="input-with-label__content">
+                                <div class="my-account__inline-container" style="width:180px">
+                                    <div class="input-with-validator">
+                                        <input type="date" name="birthday" value="{{user.birthday}}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="input-with-label__content">
+                                <div class="my-account__inline-container">
+                                    <div class="date">
+                                        <select id="selectbox1">
+                                            <option value="">Ngày sinh</option>
+                                            <option value="so1">1</option>
+                                            <option value="so2">2</option>
+                                            <option value="so3">3</option>
+                                            <option value="so4">4</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="month">
+                                        <select id="selectbox2">
+                                            <option value="">Tháng sinh</option>
+                                            <option value="so1">1</option>
+                                            <option value="so2">2</option>
+                                            <option value="so3">3</option>
+                                            <option value="so4">4</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="year">
+                                        <select id="selectbox3">
+                                            <option value="">Năm sinh</option>
+                                            <option value="so1">1999</option>
+                                            <option value="so2">2000</option>
+                                            <option value="so3">2001</option>
+                                            <option value="so4">2002</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <div class="my-account-page__submit">
+                        <button type="button" class="button-save">Lưu</button>
+                    </div>
+                </div>
+
+                <div class="my-account-profile__right">
+                    <div class="avatar-uploader">
+                        <div class="avatar-uploader__avatar">
+                            <div class="avatar-uploader__avatar-image">
+
+                            </div>
+                        </div>
+                        <input type="file" id="selectedFile" class="avatar-uploader__file-input"
+                            accept=".jpg,.jpeg,.png">
+                        <button type="button" class="btn-ligh"
+                            onclick="document.getElementById('selectedFile').click();">Chọn ảnh</button>
+                        <div class="avatar-uploader__text-container">
+                            <div class="avatar-uploader__text">Dụng lượng file tối đa 1 MB</div>
+                            <div class="avatar-uploader__text">Định dạng:.JPEG, .PNG</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- Popup change email, phone -->
+<div id="modalchangeemail" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Đổi email</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="input-width-label">
+                    <div class="input-width-label_wrapper">
+                        <div class="input-with-label__label">
+                            <label for="">Tên đăng nhập</label>
+                        </div>
+
+                        <div class="input-with-label__content">
+                            <div class="my-account__inline-container">
+                                <div class="my-account__input-text">
+                                    nthutuyet98
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-width-label">
+                    <div class="input-width-label_wrapper">
+                        <div class="input-with-label__label">
+                            <label for="">Mật khẩu</label>
+                        </div>
+
+                        <div class="input-with-label__content">
+                            <div class="my-account__inline-container">
+                                <div class="input-with-validator inputchange">
+                                    <input type="password" maxlength="255" name="password" id="password">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="my-account-page__submit">
+                    <button type="button" class="btn btnsubmit">Xác nhận</button>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="modalchangephone" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Đổi số điện thoại</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="input-width-label">
+                    <div class="input-width-label_wrapper">
+                        <div class="input-with-label__label">
+                            <label for="">Tên đăng nhập</label>
+                        </div>
+
+                        <div class="input-with-label__content">
+                            <div class="my-account__inline-container">
+                                <div class="my-account__input-text">
+                                    nthutuyet98
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-width-label">
+                    <div class="input-width-label_wrapper">
+                        <div class="input-with-label__label">
+                            <label for="">Số điện thoại</label>
+                        </div>
+
+                        <div class="input-with-label__content">
+                            <div class="my-account__inline-container">
+                                <div class="input-with-validator inputchange">
+                                    <input type="text" maxlength="255" name="" id="password">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="my-account-page__submit">
+                    <button type="button" class="btn btnsubmit">Xác nhận</button>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>";s:5:"mtime";i:1614248627;s:6:"markup";s:17719:"{{ form_ajax('onUpdate') }}
+<div class="form-group">
+    <label for="accountPassword">New Password</label>
+    <input name="password" type="password" class="form-control" id="accountPassword">
+</div>
+
+<div class="form-group">
+    <label for="accountPasswordConfirm">Confirm New Password</label>
+    <input name="password_confirmation" type="password" class="form-control" id="accountPasswordConfirm">
+</div>
+
+{% if updateRequiresPassword %}
+<p>To change these details, please confirm your current password.</p>
+<div class="form-group">
+    <label for="accountPasswordCurrent">Current Password <small class="text-danger">* required</small></label>
+    <input name="password_current" type="password" class="form-control" id="accountPasswordCurrent">
+</div>
+{% endif %}
+
+<button type="submit" class="btn btn-default">Save</button>
+
+{{ form_close() }}
+
+<script>console.log( ({{ user|raw }}))</script>
+
+<div class="records-management">
+    <div class="banner-header banner-management">
+        <div class="container text-center">
+            <h1>Tài khoản</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="cover-account">
+            <div class="my-account-session">
+                <div class="my-account-title">
+                    Hồ Sơ Của Tôi
+                </div>
+                <div class="my-account-subtitle">
+                    Quản lý hồ sơ để bảo mật
+                </div>
+            </div>
+
+            <div class="my-account-profile">
+                <div class="my-account-profile__left">
+                    <div class="input-width-label">
+                        <div class="input-width-label_wrapper">
+                            <div class="input-with-label__label">
+                                <label for="">Tên đăng nhập</label>
+                            </div>
+
+                            <div class="input-with-label__content">
+                                <div class="my-account__inline-container">
+                                    <div class="my-account__input-text">
+                                        {{user.username}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-width-label">
+                        <div class="input-width-label_wrapper">
+                            <div class="input-with-label__label">
+                                <label for="">Tên</label>
+                            </div>
+
+                            <div class="input-with-label__content">
+                                <div class="my-account__inline-container">
+                                    <div class="input-with-validator">
+                                        <input type="text" maxlength="255" value="{{user.name}}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-width-label">
+                        <div class="input-width-label_wrapper">
+                            <div class="input-with-label__label">
+                                <label for="">Email</label>
+                            </div>
+
+                            <div class="input-with-label__content">
+                                <div class="my-account__inline-container">
+                                    <div class="my-account__input-text">
+                                        {{user.email}}
+                                    </div>
+                                    <div class="my-account-profile__change-button">
+
+                                        <a href="" data-toggle="modal" data-target="#modalchangeemail">Thay đổi</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-width-label">
+                        <div class="input-width-label_wrapper">
+                            <div class="input-with-label__label">
+                                <label for="">Số điện thoại</label>
+                            </div>
+
+                            <div class="input-with-label__content">
+                                <div class="my-account__inline-container">
+                                    <div class="my-account__input-text">
+                                        {{user.phone}}
+                                    </div>
+                                    <div class="my-account-profile__change-button">
+                                        <a href="" data-toggle="modal" data-target="#modalchangephone">Thay đổi</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-width-label">
+                        <div class="input-width-label_wrapper">
+                            <div class="input-with-label__label">
+                                <label for="">Giới tính</label>
+                            </div>
+
+                            <div class="input-with-label__content">
+                                <div class="my-account-profile__gender">
+                                    <div class="stardust-radio-group">
+                                        <div class="stardust-radio">
+                                            <div class="stardust-radio-button">
+                                                <div class="stardust-radio-button__outer-circle">
+                                                    <div class="stardust-radio-button__inner-circle">
+
+                                                    </div>
+                                                    <input {% if user.sex == 'male' %} checked {%endif%} type="radio" id="male" name="gender" value="male">
+                                                </div>
+                                            </div>
+
+                                            <div class="stardust-radio__content">
+                                                <div class="stardust-radio__label">
+                                                    Nam
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="stardust-radio">
+                                            <div class="stardust-radio-button">
+                                                <div class="stardust-radio-button__outer-circle">
+                                                    <div class="stardust-radio-button__inner-circle" onclick="">
+
+                                                    </div>
+                                                    <input {% if user.sex == 'female' %} checked {%endif%} type="radio" id="female" name="gender" value="female">
+                                                </div>
+                                            </div>
+
+                                            <div class="stardust-radio__content">
+                                                <div class="stardust-radio__label">
+                                                    Nữ
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="stardust-radio">
+                                            <div class="stardust-radio-button">
+                                                <div class="stardust-radio-button__outer-circle">
+                                                    <div class="stardust-radio-button__inner-circle">
+
+                                                    </div>
+                                                    <input {% if user.sex == 'other' %} checked {%endif%} type="radio" id="other" name="gender" value="other">
+                                                </div>
+                                            </div>
+
+                                            <div class="stardust-radio__content">
+                                                <div class="stardust-radio__label">
+                                                    Khác
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="input-width-label">
+                        <div class="input-width-label_wrapper">
+                            <div class="input-with-label__label">
+                                <label for="">Ngày sinh</label>
+                            </div>
+
+                            <div class="input-with-label__content">
+                                <div class="my-account__inline-container" style="width:180px">
+                                    <div class="input-with-validator">
+                                        <input type="date" name="birthday" value="{{user.birthday}}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="input-with-label__content">
+                                <div class="my-account__inline-container">
+                                    <div class="date">
+                                        <select id="selectbox1">
+                                            <option value="">Ngày sinh</option>
+                                            <option value="so1">1</option>
+                                            <option value="so2">2</option>
+                                            <option value="so3">3</option>
+                                            <option value="so4">4</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="month">
+                                        <select id="selectbox2">
+                                            <option value="">Tháng sinh</option>
+                                            <option value="so1">1</option>
+                                            <option value="so2">2</option>
+                                            <option value="so3">3</option>
+                                            <option value="so4">4</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="year">
+                                        <select id="selectbox3">
+                                            <option value="">Năm sinh</option>
+                                            <option value="so1">1999</option>
+                                            <option value="so2">2000</option>
+                                            <option value="so3">2001</option>
+                                            <option value="so4">2002</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <div class="my-account-page__submit">
+                        <button type="button" class="button-save">Lưu</button>
+                    </div>
+                </div>
+
+                <div class="my-account-profile__right">
+                    <div class="avatar-uploader">
+                        <div class="avatar-uploader__avatar">
+                            <div class="avatar-uploader__avatar-image">
+
+                            </div>
+                        </div>
+                        <input type="file" id="selectedFile" class="avatar-uploader__file-input"
+                            accept=".jpg,.jpeg,.png">
+                        <button type="button" class="btn-ligh"
+                            onclick="document.getElementById('selectedFile').click();">Chọn ảnh</button>
+                        <div class="avatar-uploader__text-container">
+                            <div class="avatar-uploader__text">Dụng lượng file tối đa 1 MB</div>
+                            <div class="avatar-uploader__text">Định dạng:.JPEG, .PNG</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- Popup change email, phone -->
+<div id="modalchangeemail" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Đổi email</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="input-width-label">
+                    <div class="input-width-label_wrapper">
+                        <div class="input-with-label__label">
+                            <label for="">Tên đăng nhập</label>
+                        </div>
+
+                        <div class="input-with-label__content">
+                            <div class="my-account__inline-container">
+                                <div class="my-account__input-text">
+                                    nthutuyet98
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-width-label">
+                    <div class="input-width-label_wrapper">
+                        <div class="input-with-label__label">
+                            <label for="">Mật khẩu</label>
+                        </div>
+
+                        <div class="input-with-label__content">
+                            <div class="my-account__inline-container">
+                                <div class="input-with-validator inputchange">
+                                    <input type="password" maxlength="255" name="password" id="password">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="my-account-page__submit">
+                    <button type="button" class="btn btnsubmit">Xác nhận</button>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="modalchangephone" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Đổi số điện thoại</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="input-width-label">
+                    <div class="input-width-label_wrapper">
+                        <div class="input-with-label__label">
+                            <label for="">Tên đăng nhập</label>
+                        </div>
+
+                        <div class="input-with-label__content">
+                            <div class="my-account__inline-container">
+                                <div class="my-account__input-text">
+                                    nthutuyet98
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-width-label">
+                    <div class="input-width-label_wrapper">
+                        <div class="input-with-label__label">
+                            <label for="">Số điện thoại</label>
+                        </div>
+
+                        <div class="input-with-label__content">
+                            <div class="my-account__inline-container">
+                                <div class="input-with-validator inputchange">
+                                    <input type="text" maxlength="255" name="" id="password">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="my-account-page__submit">
+                    <button type="button" class="btn btnsubmit">Xác nhận</button>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>";s:4:"code";N;s:5:"title";s:23:"Thông tin thành viên";s:3:"url";s:18:"/quan-ly-tai-khoan";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:7:"account";a:3:{s:9:"paramCode";s:4:"code";s:11:"forceSecure";s:1:"0";s:15:"requirePassword";s:1:"0";}}}

@@ -1,0 +1,10 @@
+name: Brand
+form: $/watchlearn/brand/models/brand/fields.yaml
+modelClass: Watchlearn\Brand\Models\Brand
+defaultRedirect: watchlearn/brand/brand
+create:
+    redirect: 'watchlearn/brand/brand/update/:id'
+    redirectClose: watchlearn/brand/brand
+update:
+    redirect: watchlearn/brand/brand
+    redirectClose: watchlearn/brand/brand

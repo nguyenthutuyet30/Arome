@@ -1,0 +1,250 @@
+title = "Product page"
+url = "/product/:slug"
+layout = "default"
+is_hidden = 0
+
+[ProductPage]
+slug = "{{ :slug }}"
+slug_required = 1
+smart_url_check = 1
+skip_error = 0
+==
+{# Get product item #}
+{% set obProduct = ProductPage.get() %}
+
+
+<!-- BREADCRUMB AREA START -->
+<div class="herboil__breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-inner">
+                    <div class="breadcrumb-list">
+                        <ul>
+                            <!-- <li><a href="{{ 'home' | page }}">Home</a></li> -->
+                            <li><a href="{{ 'all-product' | page }}">Sản phẩm</a></li>
+                            <li><span>Chi tiết sản phẩm</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- BREADCRUMB AREA END -->
+
+<!-- SHOP AREA START -->
+<div class="product-details-area padding-top-60 mobile-pt-30 mobile-pb-40">
+    <div class="container">
+        <div class="product-details-inner">
+            <div class="row">
+                <div class="col-xl-7 col-lg-6 col-md-12">
+                    {% if obProduct.images is not empty %}
+                    <div class="product-details-img-gallery">
+                        <div class="product-details-small-img ">
+                            <div class="product-details-small-img-active slick-arrow-style-1 slick-dots-style-1">
+                                {% for img in obProduct.images %}
+                                <div class="single-img">
+                                    <img src="{{img.path}}" alt="{{obProduct.preview_image.description }}">
+                                </div>
+                                {% endfor %}
+                            </div>
+
+                        </div>
+                        <div class="product-details-large-img">
+                            <div class="product-details-large-img-active slick-arrow-style-1 slick-dots-style-1">
+                                {% for img in obProduct.images %}
+                                <div class="single-img">
+                                    <a href="{{img.path}}" data-rel="lightcase:myCollection">
+                                        <img src="{{img.path}}" alt="{{img.description}}">
+                                    </a>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="col-xl-5 col-lg-6 col-md-12">
+                    <div class="product-details-content">
+                        <div class="customer-review">
+                            <ul>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star-half-o"></i></li>
+                                <li><i class="fa fa-star-o"></i></li>
+                            </ul>
+                            <span class="review-count"><a href="#">(5 Customer review)</a></span>
+
+                        </div>
+                        <h4 class="product-title">{{ obProduct.name }}</h4>
+                        <p class="product-bmi">(50mg/ml)</p>
+                        <div class="product-price">
+                            {% set obOffer = obProduct.offer.first() %}
+                            {% if obOffer.isNotEmpty()%}
+                            <span class="regular-price"> {{ obOffer.price }} {{ obOffer.currency }}</span>
+                            {% if obOffer.old_price > 0 %}
+                            <del class="price price-sale"> {{ obOffer.old_price }} {{ obOffer.currency }}</del>
+                            {% endif %}
+                            {% endif %}
+                        </div>
+                        <div class="product-excerpt">
+                            <p>{{ obProduct.preview_text }}</p>
+                        </div>
+
+                        <div class="single-product-info">
+                            <div class="cart-plus-minus">
+                                <div class="buttons_added">
+                                    <input class="minus is-form" type="button" value="-">
+                                    <input aria-label="quantity" class="input-qty" id="input-qty" max="10" min="1"
+                                        name="" type="number" value="1">
+                                    <input class="plus is-form" type="button" value="+">
+                                </div>
+                                <!-- <input type="text" value="02" name="qtybutton" class="cart-plus-minus-box"> -->
+                            </div>
+                            <div class="product-details-cart-btn btn-wrapper">
+                                <a class="boxed-btn reverse-color" href="#"
+                                    onclick="addCart('{{obOffer.id}}', document.getElementById('input-qty').value)">Thêm
+                                    vào
+                                    giỏ</a>
+                            </div>
+                            <div class="product-details-buy-btn btn-wrapper">
+                                <a class="boxed-btn reverse-color"
+                                    onclick="addCart('{{obOffer.id}}', document.getElementById('input-qty').value)"
+                                    href="#">Mua
+                                    ngay</a>
+                            </div>
+                            <!-- <div class="product-share social-media">
+                                <span class="pro-meta-title">Share: </span>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                </ul>
+                            </div> -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- SHOP AREA END -->
+
+<!-- TAB AREA START -->
+<div class="product-details-tab-area padding-bottom-40 mobile-pt-30 mobile-pb-30">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="product-details-tab-inner">
+                    <div class="product-details-tab-menu nav">
+                        <a class="active" data-toggle="tab" href="#tab-1-1">Mô tả</a>
+                        <!-- <a data-toggle="tab" href="#tab-1-2">Chương trình khuyến mãi</a> -->
+                        <a data-toggle="tab" href="#tab-1-3">Cảm nhận Khách hàng</a>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="tab-1-1">
+                            <div class="product-details-tab-content">
+                                {{obProduct.description | raw}}
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tab-1-2">
+                            <div class="product-details-tab-content">
+
+
+                                <p>{{obProduct.sale}}</p>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tab-1-3">
+                            <div class="product-details-tab-content comments-area">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <!-- review-area -->
+                                        <div class="review-area">
+                                            <div class="review-header">
+                                                <h4>Bình luận</h4>
+                                                <div class="customer-review">
+                                                    <ul>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star-half-o"></i></li>
+                                                        <li><i class="fa fa-star-o"></i></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="review-item">
+                                                <div class="reviewer-info">
+                                                    <h6>Mai</h6>
+                                                    <span class="review-date">Ngày 4 tháng 2 năm 2020</span>
+                                                    <div class="customer-review">
+                                                        <ul>
+                                                            <li><i class="fa fa-star"></i></li>
+                                                            <li><i class="fa fa-star"></i></li>
+                                                            <li><i class="fa fa-star"></i></li>
+                                                            <li><i class="fa fa-star-half-o"></i></li>
+                                                            <li><i class="fa fa-star-o"></i></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="reviewer-comment">
+                                                    <p>Sản phẩm tôi đã mua nhiều lần, rất thơm.</p>
+                                                </div>
+                                            </div>
+                                            <div class="review-item">
+                                                <div class="reviewer-info">
+                                                    <h6>Phong</h6>
+                                                    <span class="review-date">Ngày 3 tháng 2 năm 2021</span>
+                                                    <div class="customer-review">
+                                                        <ul>
+                                                            <li><i class="fa fa-star"></i></li>
+                                                            <li><i class="fa fa-star"></i></li>
+                                                            <li><i class="fa fa-star"></i></li>
+                                                            <li><i class="fa fa-star-half-o"></i></li>
+                                                            <li><i class="fa fa-star-o"></i></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="reviewer-comment">
+                                                    <p>Lần đầu tiên tôi mua tinh dầu tại đây, rất thơm và hiệu quả diệt
+                                                        côn trùng. Tôi sẽ ủng hộ.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <!-- comments-form-area -->
+                                        <div class="comments-form-area">
+                                            <h4 class="title-1">Viết bình luận</h4>
+                                            <p><small>Bạn nhập vào email để bình luận được hiển thị và nhập đầy đủ các
+                                                    trường *</small></p>
+                                            <form action="#" class="comments-from">
+                                                <input type="text" name="name" placeholder="Họ tên*">
+                                                <input type="text" name="email" placeholder="Email*">
+                                                <textarea name="message" placeholder="Bình luận"></textarea>
+                                                <div class="btn-wrapper">
+                                                    <button class="boxed-btn black-btn fullwidth-btn"
+                                                        type="submit">Gửi</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- TAB AREA END -->
+
+<!-- Button Shopping -->
+<div class="product-details-buy-btn btn-wrapper text-center padding-bottom-60">
+    <a class="boxed-btn reverse-color" onclick="addCart('{{obOffer.id}}')" href="#">Mua ngay</a>
+</div>
+<!-- Button Shopping End -->

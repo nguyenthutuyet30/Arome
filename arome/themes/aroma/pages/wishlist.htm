@@ -1,0 +1,36 @@
+title = "wishlist"
+url = "/wishlist"
+layout = "default"
+is_hidden = 0
+
+[Watchlearn\Wishlist\Components\Wishlist Wishlist]
+
+[session]
+security = "all"
+==
+
+{% set countWLUR = Wishlist.countWishlistUser(user.id) %}
+{% set products = Wishlist.get(user.id) %}
+
+<div class="container">
+    <div class="alert alert-primary" role="alert">
+        <strong>Sản phẩm yêu thích <i style="color: red;">{{countWLUR}}</i> </strong>
+    </div>
+    <div class="row">
+        {% for product in products %}
+        {% set item = Wishlist.findProduct(product.product_id) %}
+        {% if item %}
+        <div class="col-xl-3 col-lg-4 col-sm-6 col-12">
+            {% partial 'product/product-card' obProduct=item %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+<div class="pop-up" id="pop-up">
+    <div class="pop-up__content">
+        <a class="pop-up__close" href="#container">x</a>
+        <p>Vui lòng đăng nhập để tiếp tục yêu thích!</p>
+    </div>
+</div>

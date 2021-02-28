@@ -1,0 +1,68 @@
+title = "Liên hệ"
+url = "/lien-he"
+layout = "default"
+is_hidden = 0
+
+[contactForm]
+
+[googleMap]
+latitude = 10.7462218
+longitude = 106.6993518
+zoom = 12
+width = "100%"
+height = "450px"
+mapTypeId = "ROADMAP"
+showMarker = "true"
+apiKey = "AIzaSyCvH7jUJXhedSPSCZ_Qgbkdw5ule2powaY"
+==
+<!-- BANNER HEADER -->
+<div class="banner-header banner-contact-top">
+    <div class="container text-center">
+        <h1>Liên hệ</h1>
+    </div>
+</div>
+<!-- END BANNER HEADER -->
+
+<div class="map">
+    {% component 'googleMap' %}
+</div>
+
+<!-- SHOP AREA START -->
+<div class="contact-area padding-top-115 padding-bottom-115 mobile-pt-70 mobile-pb-75">
+    <div class="container">
+        <div class="contact-inner">
+            <div class="row">
+                <div class="col-xl-5 col-md-7">
+                    <div class="contact-form-area">
+                        <h4>Hãy để lại lời nhắn của bạn chúng tôi sẽ phản hồi trong thời gian sớm nhất</h4>
+                        {% component 'contactForm' %}
+                    </div>
+                </div>
+                <div class="col-xl-6 offset-xl-1 col-md-5">
+                    <div class="content-contact">
+                        <h4 class="contact-title">
+                            Công ty TNHH SX-TM-DV-Xuất Nhập khẩu HQ
+                        </h4>
+                        <!-- <p>
+                            Chúng tôi chăm sóc khách hàng như người thân, trò chuyện như những người bạn. Từ đó tạo ra
+                            niềm tin, sự hài lòng trên từng sản phẩm trao đến tay. Và đó, là lời hứa chân thành nhất
+                            dành cho bạn!
+                        </p> -->
+                        <ul>
+                            <li><i class="far fa-map-marker-alt"></i> 17/3/11, đường Gò Dầu, phường Tân Quý, quận Tân
+                                Phú, Tp.
+                                Hồ Chí Minh, Việt Nam </li>
+                            <li><i class="fal fa-building"></i> VP giao dịch: Kho A75, Bạch Đằng, Phường 2, Quận Tân
+                                Bình, TP. Hồ Chí Minh</li>
+                            <li><i class="fal fa-envelope"
+                                    style="margin-right:-2px;font-size:18px"></i>contact@hqvietnam.com</li>
+                            <li><i class="far fa-phone-alt" style="font-size: 18px;"></i>036 63 69 830</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- SHOP AREA END -->

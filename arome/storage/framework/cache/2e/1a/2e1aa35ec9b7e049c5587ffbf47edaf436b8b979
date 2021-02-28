@@ -1,0 +1,446 @@
+1614309463a:1:{s:16:"blogcategory.htm";a:11:{s:8:"fileName";s:16:"blogcategory.htm";s:7:"content";s:9720:"title = "blogcategory"
+url = "/blog/category/:slug/:page?"
+layout = "default"
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = ":slug"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blogcategory"
+postPage = "blogpost"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blogcategory"
+==
+{% set categories = blogCategories.categories %}
+{% set currentCategoySlug = blogCategories.currentCategorySlug %}
+
+<!-- Header -->
+<header>
+    <div class="banner-category">
+        <div class="container">
+            {% for category in categories %}
+            <div class="title-category">
+                {% if category.slug == currentCategorySlug %}
+                <a href="{{ category.url }}">
+                    <h1>{{ category.name }}</h1>
+                </a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</header>
+<!-- Header End -->
+
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb">
+    <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ 'home' | page }}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ 'blog' | page }}">Blog</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><a href="{{ 'blogCategory 
+            ' }}"></a>Blog Categories</li>
+    </ul>
+</nav>
+<!-- Breadcumb End  -->
+
+<!-- Post Category -->
+<div class="post-category">
+    <div class="container">
+        <div class="category-wrapper">
+            <article>
+                {% set posts = blogPosts.posts %}
+
+                <ul class="post-list">
+                    {% for post in posts %}
+                    <li>
+                        <div class="sidepost">
+                            <div class="sidepost-image">
+                                {% if post.featured_images.count %}
+                                <a href="{{ post.url }}">
+                                    {% for image in post.featured_images %}
+                                    <img data-src="{{ image.filename }}" src="{{ image.path }}"
+                                        alt="{{ image.description }}">
+                                    {% endfor %}
+                                </a>
+                                {% endif %}
+                            </div>
+
+                            <div class="sidepost-content">
+                                <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+
+                                <p class="info">
+                                    {% if post.categories.count %}
+                                    {% set categoryLinks = post.categories | map(c => "<a
+                                        href=\"#{c.url}\">#{c.name}</a>")
+                                    |
+                                    join(', ') %}
+
+                                    {{ 'rainlab.blog::lang.post.posted_byline' | trans({
+                                    date: post.published_at | date('rainlab.blog::lang.post.date_format' | trans),
+                                    categories: categoryLinks
+                                    }) }}
+                                    {% else %}
+                                    {{ 'rainlab.blog::lang.post.posted_byline_no_categories' | trans({
+                                    date: post.published_at | date('rainlab.blog::lang.post.date_format' | trans)
+                                    }) }}
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    {% else %}
+                    <li class="no-data">{{ blogPosts.noPostsMessage }}</li>
+                    {% endfor %}
+                </ul>
+
+                {% if posts.lastPage > 1 %}
+                <ul class="pagination">
+                    {% if posts.currentPage > 1 %}
+                    <li><a href="{{ this.page.baseFileName | page({ (blogPosts.pageParam): (posts.currentPage-1) }) }}">&larr;
+                            Prev</a></li>
+                    {% endif %}
+
+                    {% for page in 1..posts.lastPage %}
+                    <li class="{{ posts.currentPage == page ? 'active' : null }}">
+                        <a href="{{ this.page.baseFileName | page({ (blogPosts.pageParam): page }) }}">{{ page }}</a>
+                    </li>
+                    {% endfor %}
+
+                    {% if posts.lastPage > posts.currentPage %}
+                    <li><a href="{{ this.page.baseFileName | page({ (blogPosts.pageParam): (posts.currentPage+1) }) }}">Next
+                            &rarr;</a></li>
+                    {% endif %}
+                </ul>
+                {% endif %}
+
+            </article>
+
+            <aside>
+                <div class="sidebar">
+                    <div class="sidebar-title">
+                        <h4>Categories</h4>
+                        <div class="header-line"></div>
+                        <ul class="list-category">
+                            {% for category in categories %}
+                            <li {% if category.slug==currentCategorySlug %}class="active" {% endif %}>
+                                <a href="{{ category.url }}" class="category-sidebar">
+                                    <div class="line-color"></div>
+                                    <div class="name-category">
+                                        {{ category.name }}
+                                    </div>
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="sidebar-title">
+                        <h4>Tags</h4>
+                        <div class="header-line"></div>
+                        <div class="cover-listtags">
+                            <div class="list-tags">
+                                <div class="listitem">
+                                    <a href="">Al</a>
+                                </div>
+
+                                <div class="listitem">
+                                    <a href="">AWS</a>
+                                </div>
+
+                                <div class="listitem">
+                                    <a href="">AGILE</a>
+                                </div>
+
+                                <div class="listitem">
+                                    <a href="">B2B SALES</a>
+                                </div>
+
+                                <div class="listitem">
+                                    <a href="">AGILE</a>
+                                </div>
+                            </div>
+
+                            <div class="list-tags">
+                                <div class="listitem">
+                                    <a href="">Business Analyst</a>
+                                </div>
+
+                                <div class="listitem">
+                                    <a href="">Business Analyst cần học gì</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-title">
+                        <h4>Nhận Bài Viết Từ Chúng Tôi</h4>
+                        <div class="header-line"></div>
+
+                        <div class="resgiter">
+                            <h3>Đăng Ký Ngay Nhận Nhiều Bài Hay</h3>
+                            <input type="email" name="email" id="email" placeholder="Email address" class="email-input">
+                            <input type="submit" name="" value="Subscribe" class="btn-resgiter">
+                        </div>
+                        <div class="form-info">
+                            Đọc <a href="">Chính sách bảo mật</a>
+                        </div>
+                        {#<div class="images-block">
+                            <a href="">
+                                <img src="public/images/HinhMangeStore/sidebar/tuyen dung magestore.png" alt="">
+                            </a>
+                        </div> #}
+                    </div>
+                </div>
+            </aside>
+        </div>
+        <section>
+            <div class="icon-social">
+                <a href="" class="conect-link">
+                    <div class="square-icon">
+                        <i class="fa fa-facebook-square"></i>
+                    </div>
+
+                    <div class="name-social">Facebook</div>
+                </a>
+                <a href="" class="conect-link">
+                    <div class="square-icon">
+                        <i class="fa fa-linkedin-square"></i>
+                    </div>
+
+                    <div class="name-social">Linkedin</div>
+                </a>
+                <a href="" class="conect-link">
+                    <div class="square-icon">
+                        <i class="fa fa-youtube-square"></i>
+                    </div>
+                    <div class="name-social">Youtube</div>
+                </a>
+                <a href="" class="conect-link">
+                    <div class="square-icon">
+                        <i class="fa fa-briefcase"></i>
+                    </div>
+
+                    <div class="name-social">Carrens site</div>
+                </a>
+            </div>
+        </section>
+    </div>
+</div>
+<!-- Post Category End -->";s:5:"mtime";i:1609954350;s:6:"markup";s:9319:"{% set categories = blogCategories.categories %}
+{% set currentCategoySlug = blogCategories.currentCategorySlug %}
+
+<!-- Header -->
+<header>
+    <div class="banner-category">
+        <div class="container">
+            {% for category in categories %}
+            <div class="title-category">
+                {% if category.slug == currentCategorySlug %}
+                <a href="{{ category.url }}">
+                    <h1>{{ category.name }}</h1>
+                </a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</header>
+<!-- Header End -->
+
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb">
+    <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ 'home' | page }}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ 'blog' | page }}">Blog</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><a href="{{ 'blogCategory 
+            ' }}"></a>Blog Categories</li>
+    </ul>
+</nav>
+<!-- Breadcumb End  -->
+
+<!-- Post Category -->
+<div class="post-category">
+    <div class="container">
+        <div class="category-wrapper">
+            <article>
+                {% set posts = blogPosts.posts %}
+
+                <ul class="post-list">
+                    {% for post in posts %}
+                    <li>
+                        <div class="sidepost">
+                            <div class="sidepost-image">
+                                {% if post.featured_images.count %}
+                                <a href="{{ post.url }}">
+                                    {% for image in post.featured_images %}
+                                    <img data-src="{{ image.filename }}" src="{{ image.path }}"
+                                        alt="{{ image.description }}">
+                                    {% endfor %}
+                                </a>
+                                {% endif %}
+                            </div>
+
+                            <div class="sidepost-content">
+                                <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+
+                                <p class="info">
+                                    {% if post.categories.count %}
+                                    {% set categoryLinks = post.categories | map(c => "<a
+                                        href=\"#{c.url}\">#{c.name}</a>")
+                                    |
+                                    join(', ') %}
+
+                                    {{ 'rainlab.blog::lang.post.posted_byline' | trans({
+                                    date: post.published_at | date('rainlab.blog::lang.post.date_format' | trans),
+                                    categories: categoryLinks
+                                    }) }}
+                                    {% else %}
+                                    {{ 'rainlab.blog::lang.post.posted_byline_no_categories' | trans({
+                                    date: post.published_at | date('rainlab.blog::lang.post.date_format' | trans)
+                                    }) }}
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    {% else %}
+                    <li class="no-data">{{ blogPosts.noPostsMessage }}</li>
+                    {% endfor %}
+                </ul>
+
+                {% if posts.lastPage > 1 %}
+                <ul class="pagination">
+                    {% if posts.currentPage > 1 %}
+                    <li><a href="{{ this.page.baseFileName | page({ (blogPosts.pageParam): (posts.currentPage-1) }) }}">&larr;
+                            Prev</a></li>
+                    {% endif %}
+
+                    {% for page in 1..posts.lastPage %}
+                    <li class="{{ posts.currentPage == page ? 'active' : null }}">
+                        <a href="{{ this.page.baseFileName | page({ (blogPosts.pageParam): page }) }}">{{ page }}</a>
+                    </li>
+                    {% endfor %}
+
+                    {% if posts.lastPage > posts.currentPage %}
+                    <li><a href="{{ this.page.baseFileName | page({ (blogPosts.pageParam): (posts.currentPage+1) }) }}">Next
+                            &rarr;</a></li>
+                    {% endif %}
+                </ul>
+                {% endif %}
+
+            </article>
+
+            <aside>
+                <div class="sidebar">
+                    <div class="sidebar-title">
+                        <h4>Categories</h4>
+                        <div class="header-line"></div>
+                        <ul class="list-category">
+                            {% for category in categories %}
+                            <li {% if category.slug==currentCategorySlug %}class="active" {% endif %}>
+                                <a href="{{ category.url }}" class="category-sidebar">
+                                    <div class="line-color"></div>
+                                    <div class="name-category">
+                                        {{ category.name }}
+                                    </div>
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="sidebar-title">
+                        <h4>Tags</h4>
+                        <div class="header-line"></div>
+                        <div class="cover-listtags">
+                            <div class="list-tags">
+                                <div class="listitem">
+                                    <a href="">Al</a>
+                                </div>
+
+                                <div class="listitem">
+                                    <a href="">AWS</a>
+                                </div>
+
+                                <div class="listitem">
+                                    <a href="">AGILE</a>
+                                </div>
+
+                                <div class="listitem">
+                                    <a href="">B2B SALES</a>
+                                </div>
+
+                                <div class="listitem">
+                                    <a href="">AGILE</a>
+                                </div>
+                            </div>
+
+                            <div class="list-tags">
+                                <div class="listitem">
+                                    <a href="">Business Analyst</a>
+                                </div>
+
+                                <div class="listitem">
+                                    <a href="">Business Analyst cần học gì</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-title">
+                        <h4>Nhận Bài Viết Từ Chúng Tôi</h4>
+                        <div class="header-line"></div>
+
+                        <div class="resgiter">
+                            <h3>Đăng Ký Ngay Nhận Nhiều Bài Hay</h3>
+                            <input type="email" name="email" id="email" placeholder="Email address" class="email-input">
+                            <input type="submit" name="" value="Subscribe" class="btn-resgiter">
+                        </div>
+                        <div class="form-info">
+                            Đọc <a href="">Chính sách bảo mật</a>
+                        </div>
+                        {#<div class="images-block">
+                            <a href="">
+                                <img src="public/images/HinhMangeStore/sidebar/tuyen dung magestore.png" alt="">
+                            </a>
+                        </div> #}
+                    </div>
+                </div>
+            </aside>
+        </div>
+        <section>
+            <div class="icon-social">
+                <a href="" class="conect-link">
+                    <div class="square-icon">
+                        <i class="fa fa-facebook-square"></i>
+                    </div>
+
+                    <div class="name-social">Facebook</div>
+                </a>
+                <a href="" class="conect-link">
+                    <div class="square-icon">
+                        <i class="fa fa-linkedin-square"></i>
+                    </div>
+
+                    <div class="name-social">Linkedin</div>
+                </a>
+                <a href="" class="conect-link">
+                    <div class="square-icon">
+                        <i class="fa fa-youtube-square"></i>
+                    </div>
+                    <div class="name-social">Youtube</div>
+                </a>
+                <a href="" class="conect-link">
+                    <div class="square-icon">
+                        <i class="fa fa-briefcase"></i>
+                    </div>
+
+                    <div class="name-social">Carrens site</div>
+                </a>
+            </div>
+        </section>
+    </div>
+</div>
+<!-- Post Category End -->";s:4:"code";N;s:5:"title";s:12:"blogcategory";s:3:"url";s:27:"/blog/category/:slug/:page?";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:9:"blogPosts";a:7:{s:10:"pageNumber";s:11:"{{ :page }}";s:14:"categoryFilter";s:5:":slug";s:12:"postsPerPage";s:2:"10";s:14:"noPostsMessage";s:14:"No posts found";s:9:"sortOrder";s:17:"published_at desc";s:12:"categoryPage";s:12:"blogcategory";s:8:"postPage";s:8:"blogpost";}s:14:"blogCategories";a:3:{s:4:"slug";s:11:"{{ :slug }}";s:12:"displayEmpty";s:1:"0";s:12:"categoryPage";s:12:"blogcategory";}}}

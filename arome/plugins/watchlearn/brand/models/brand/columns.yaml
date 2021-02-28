@@ -1,0 +1,10 @@
+columns:
+    id:
+        label: id
+        type: number
+    image:
+        label: image
+        type: text
+    status:
+        label: status
+        type: text

@@ -1,0 +1,30 @@
+title = "Tài khoản của tôi"
+url = "/my-acount"
+layout = "default"
+is_hidden = 0
+==
+<div class="myacount">
+    <div class="banner-header banner-myacount">
+        <div class="container text-center">
+            <h1>My account</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="getpassword text-center">
+            <h2>Lấy lại mật khẩu</h2>
+            <form action="" class="password-nonce">
+                <p>Bạn quên mật khẩu? Vui lòng nhập tên đăng nhập hoặc địa chỉ email. Bạn sẽ nhận được một liên kết tạo mật
+                    khẩu mới qua email.</p>
+                <p class="lost-pass-input">
+                    <input type="text" name="user-login" id="user-login"
+                        placeholder="Vui lòng nhập tên đăng nhập hoặc email...">
+                </p>
+                <p>
+                    <span>Quay lại <a href="{{ 'login' | page }}" class="backlogin">Đăng nhập</a> </span>
+                    <button type="submit" value="Đặt lại mật khẩu" class="submit-account">Đặt lại mật khẩu</button>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>

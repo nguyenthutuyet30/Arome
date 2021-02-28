@@ -1,0 +1,41 @@
+<div class="report-widget widget-welcome">
+    <h3><?= e(trans($this->property('title'))) ?></h3>
+    
+   
+    
+    <?php if (!isset($error)): ?>
+        <div class="welcome-container">
+            <table id="myTable" class="display" style="width:100%">
+                <thead>
+                    <tr>   
+                        <th width="6%">STT</th>
+                        <th> <?= e(trans('backend::lang.dashboard.revenue.name')) ?> </th>
+                        <th> <?= e(trans('backend::lang.dashboard.revenue.start')) ?> </th>
+                        <th> <?= e(trans('backend::lang.dashboard.revenue.end')) ?> </th>
+                        <th> <?= e(trans('backend::lang.dashboard.revenue.total')) ?> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($revenue as $key => $detail): ?>
+                        <tr>
+                            <td><?= $key+1 ?></td>
+                            <td><?= $detail[0]['name'] ?></td>
+                            <td><?= $detail[0]['start'] ?></td>
+                            <td><?= $detail[0]['end'] ?></td>  
+                            <td><?= number_format($detail[0]['total'], 0) ?></td>  
+                        </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+       <script>
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        });
+       </script> 
+    <?php else: ?>
+        <div class="callout callout-warning">
+            <div class="content"><?= e($error) ?></div>
+        </div>
+    <?php endif ?>
+</div>

@@ -1,0 +1,20 @@
+plugin:
+    name: 'watchlearn.brand::lang.plugin.name'
+    description: 'watchlearn.brand::lang.plugin.description'
+    author: watchlearn
+    icon: oc-icon-adjust
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: 'Thêm đối tác'
+        url: watchlearn/brand/brand
+        icon: icon-adjust
+        sideMenu:
+            side-menu-item:
+                label: 'Thêm đối tác'
+                url: watchlearn/brand/brand
+                icon: icon-sitemap
+            side-menu-item2:
+                label: 'Trạng thái đối tác'
+                url: watchlearn/brand/brandpartner
+                icon: icon-sitemap

@@ -1,0 +1,49 @@
+1614309463a:1:{s:14:"top-footer.htm";a:6:{s:8:"fileName";s:14:"top-footer.htm";s:7:"content";s:1030:"[viewBag]
+==
+<div class="section_newletter">
+    <div class="container">
+        <div class="wrap-register">
+            <div class="title-register text-center">
+                <h3>Đăng ký nhận tin</h3>
+                <p>
+                    Bạn có thể đăng ký nhận tin khuyến mãi bất cứ lúc nào, những thông tin sẽ được gửi tới bạn nhanh
+                    nhất.
+                </p>
+            </div>
+            <div class="main_footer">
+                <div class="form-footer">
+                    <form class="margin-bottom-0">
+                        <input type="email" name="Email" placeholder="Vui lòng nhập email tại đây ..." id="email">
+                        <button class="btn btn-primary subscribe" name="subscribe" id="subscribe">
+                            <i class="fa fa-paper-plane"></i>&nbsp;
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>";s:5:"mtime";i:1613967516;s:6:"markup";s:1015:"<div class="section_newletter">
+    <div class="container">
+        <div class="wrap-register">
+            <div class="title-register text-center">
+                <h3>Đăng ký nhận tin</h3>
+                <p>
+                    Bạn có thể đăng ký nhận tin khuyến mãi bất cứ lúc nào, những thông tin sẽ được gửi tới bạn nhanh
+                    nhất.
+                </p>
+            </div>
+            <div class="main_footer">
+                <div class="form-footer">
+                    <form class="margin-bottom-0">
+                        <input type="email" name="Email" placeholder="Vui lòng nhập email tại đây ..." id="email">
+                        <button class="btn btn-primary subscribe" name="subscribe" id="subscribe">
+                            <i class="fa fa-paper-plane"></i>&nbsp;
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>";s:4:"code";N;s:7:"viewBag";a:0:{}}}

@@ -1,0 +1,13 @@
+columns:
+    id:
+        label: id
+        type: number
+    name:
+        label: name
+        type: text
+    images:
+        label: images
+        type: text
+    button:
+        label: button
+        type: text

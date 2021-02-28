@@ -1,0 +1,35 @@
+<div class="report-widget widget-welcome">
+    <h3><?= e(trans($this->property('title'))) . ' Tháng ' . $thisMonth ?></h3>
+
+    <?php if (!isset($error)): ?>
+        <div class="welcome-container">
+            <table id="myTable2" class="display" style="width:100%">
+                <thead>
+                    <tr>   
+                        <th width="6%">STT</th>
+                        <th> <?= e(trans('backend::lang.dashboard.selling.name')) ?> </th>
+                        <th> <?= e(trans('backend::lang.dashboard.selling.total')) ?> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($order as $key => $item): ?>
+                        <tr>
+                            <td><?= $key+1 ?></td>
+                            <td><?= $item->offer->name ?></td>
+                            <td><?= $item->quantity ?></td>  
+                        </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+       <script>
+        $(document).ready( function () {
+            $('#myTable2').DataTable();
+        });
+       </script> 
+    <?php else: ?>
+        <div class="callout callout-warning">
+            <div class="content"><?= e($error) ?></div>
+        </div>
+    <?php endif ?>
+</div>
